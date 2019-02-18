@@ -255,6 +255,22 @@
 
         <li>
             <p>
+                <strong>Name:</strong> local_network_host<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> One user will be the host of a group, and changes cannot be made without being connected to the host. <br>This is done to prevent other users in the group from branching off and causing sync problems.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Name:</strong> local_network_transfer_host<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> The host may transfer their ownership of the group to any other connected user. <br> Before transfering, the host's side will check to make sure the recieving user is up to date.
+            </p>
+        </li>
+
+        <li>
+            <p>
                 <strong>Name:</strong> internet_network<br>
                 <strong>Type:</strong> functional<br>
                 <strong>Summary:</strong> The program should be able to communicate with a web host.
@@ -265,7 +281,23 @@
             <p>
                 <strong>Name:</strong> network_mind_map<br>
                 <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> The program should be able to update the mind map in real time over a network.
+                <strong>Summary:</strong> The program should be able to update the mind map in real time over a network. <br>Ideally users should be able to see others moving branches around and adding things.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Name:</strong> network_sync<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> The program should periodically sync its data from the host. <br>This is triggered either by a notification from the host that changes were made, <br>or a set minimum interval in case the notification gets missed due to poor connection.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Name:</strong> network_push<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> The program will check to make sure it is up to date with the host, and then<br> push changes to the host for distributing to the other users.
             </p>
         </li>
     </ol>
