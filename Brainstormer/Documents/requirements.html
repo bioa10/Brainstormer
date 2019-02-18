@@ -13,21 +13,126 @@
     <h1>
         BrainStormer Requirements
     </h1>
+
     <h2>
         Team members
     </h2>
     <p>
         Aidan Murphy & Daniel Blankenship
     </p>
+
     <h2>Purpose</h2>
     <p>
         The goal of the project is to help teams coordinate and work better together.<br>
         The project is also meant to boost the creativity and diversity of brainstorming sessions.
     </p>
+
     <h2>Requirements</h2>
+
+    <p><br></p>
+    <h3>Idea List</h3>
     <ol>
 
+        <li>
+            <p>
+                <strong>Name:</strong> add_idea<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> Users should be able to add ideas to a list of ideas.
+            </p>
+        </li>
 
+        <li>
+            <p>
+                <strong>Name:</strong> delete_idea<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> Users should be able to delete their own ideas.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Name:</strong> view_ideas<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> Users should be able to view all ideas that have been added.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Name:</strong> like_idea<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> Users should be able to upvote ideas that they like.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Name:</strong> unlike_idea<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> Users should be able to remove likes that they have used.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Name:</strong> add_comment<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> Users should be able to add comments to ideas.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Name:</strong> delete_comment<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> Users should be able to delete their own comments.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Name:</strong> add_pro_con<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> Users should be able to add a pro or con to an idea.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Name:</strong> delete_pro_con<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> Users should be able to delete their pros or cons.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Name:</strong> create_flowchart<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> Users should be able to create flow charts on ideas.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Name:</strong> create_graph<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> Users should be able to create graphs on ideas.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Name:</strong> add_image<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> Users should be able to add images to ideas.
+            </p>
+        </li>
+    </ol>
+
+    <p><br></p>
+    <h3>Mind Map</h3>
+    <ol>
         <li>
             <p>
                 <strong>Name:</strong> view_mindmap<br>
@@ -43,47 +148,47 @@
                 <strong>Summary:</strong> Users should be able to manipulate and add/remove things on the mind map.
             </p>
         </li>
+    </ol>
 
+    <p><br></p>
+    <h3>Idea Tournament</h3>
+    <ol>
         <li>
             <p>
-                <strong>Name:</strong> generate_idea_prompt<br>
+                <strong>Name:</strong> start_idea_tournament<br>
                 <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to use a generator that creates project ideas.
+                <strong>Summary:</strong> Users should be able to start an idea tournament with the currently added ideas.
             </p>
         </li>
 
         <li>
             <p>
-                <strong>Name:</strong> generate_essay_prompt<br>
+                <strong>Name:</strong> vote_in_tournament<br>
                 <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to use a generator that creates essay prompts.
+                <strong>Summary:</strong> Users should be able to vote in the tournament.
             </p>
         </li>
 
         <li>
             <p>
-                <strong>Name:</strong> local_network<br>
+                <strong>Name:</strong> next_tournament_round<br>
                 <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> The program should be able to communicate with other instances of itself over a LAN.
+                <strong>Summary:</strong> When all users have voted, the least voted ideas are eliminated and the next round starts.
             </p>
         </li>
 
         <li>
             <p>
-                <strong>Name:</strong> internet_network<br>
+                <strong>Name:</strong> flip_coin<br>
                 <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> The program should be able to communicate with a web host.
+                <strong>Summary:</strong> A coin can be flipped to settle ties if wanted.
             </p>
         </li>
+    </ol>
 
-        <li>
-            <p>
-                <strong>Name:</strong> network_mind_map<br>
-                <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> The program should be able to update the mind map in real time over a network.
-            </p>
-        </li>
-
+    <p><br></p>
+    <h3>Goal Tracker</h3>
+    <ol>
         <li>
             <p>
                 <strong>Name:</strong> goal_tracker<br>
@@ -115,135 +220,59 @@
                 <strong>Summary:</strong> Users should be able to view their checklist progress in relation to deadlines.
             </p>
         </li>
+    </ol>
+
+    <p><br></p>
+    <h3>Prompt Generator</h3>
+    <ol>
+        <li>
+            <p>
+                <strong>Name:</strong> generate_idea_prompt<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> Users should be able to use a generator that creates project ideas.
+            </p>
+        </li>
 
         <li>
             <p>
-                <strong>Name:</strong> add_idea<br>
+                <strong>Name:</strong> generate_essay_prompt<br>
                 <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to add ideas to a list of ideas.
+                <strong>Summary:</strong> Users should be able to use a generator that creates essay prompts.
             </p>
         </li>
-        
+    </ol>
+
+    <p><br></p>
+    <h3>Networking</h3>
+    <ol>
         <li>
             <p>
-                <strong>Name:</strong> delete_idea<br>
+                <strong>Name:</strong> local_network<br>
                 <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to delete their own ideas.
+                <strong>Summary:</strong> The program should be able to communicate with other instances of itself over a LAN.
             </p>
         </li>
-        
+
         <li>
             <p>
-                <strong>Name:</strong> view_ideas<br>
+                <strong>Name:</strong> internet_network<br>
                 <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to view all ideas that have been added.
+                <strong>Summary:</strong> The program should be able to communicate with a web host.
             </p>
         </li>
-        
+
         <li>
             <p>
-                <strong>Name:</strong> like_idea<br>
+                <strong>Name:</strong> network_mind_map<br>
                 <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to upvote ideas that they like.
+                <strong>Summary:</strong> The program should be able to update the mind map in real time over a network.
             </p>
         </li>
-        
-        <li>
-            <p>
-                <strong>Name:</strong> unlike_idea<br>
-                <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to remove likes that they have used.
-            </p>
-        </li>
-        
-        <li>
-            <p>
-                <strong>Name:</strong> add_comment<br>
-                <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to add comments to ideas.
-            </p>
-        </li>
-        
-        <li>
-            <p>
-                <strong>Name:</strong> delete_comment<br>
-                <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to delete their own comments.
-            </p>
-        </li>
-        
-        <li>
-            <p>
-                <strong>Name:</strong> add_pro_con<br>
-                <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to add a pro or con to an idea.
-            </p>
-        </li>
-        
-        <li>
-            <p>
-                <strong>Name:</strong> delete_pro_con<br>
-                <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to delete their pros or cons.
-            </p>
-        </li>
-        
-        <li>
-            <p>
-                <strong>Name:</strong> create_flowchart<br>
-                <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to create flow charts on ideas.
-            </p>
-        </li>
-        
-        <li>
-            <p>
-                <strong>Name:</strong> create_graph<br>
-                <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to create graphs on ideas.
-            </p>
-        </li>
-        
-        <li>
-            <p>
-                <strong>Name:</strong> add_image<br>
-                <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to add images to ideas.
-            </p>
-        </li>
-        
-        <li>
-            <p>
-                <strong>Name:</strong> start_idea_tournament<br>
-                <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to start an idea tournament with the currently added ideas.
-            </p>
-        </li>
-        
-        <li>
-            <p>
-                <strong>Name:</strong> vote_in_tournament<br>
-                <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to vote in the tournament.
-            </p>
-        </li>
-        
-        <li>
-            <p>
-                <strong>Name:</strong> next_tournament_round<br>
-                <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> When all users have voted, the least voted ideas are eliminated and the next round starts.
-            </p>
-        </li>
-        
-        <li>
-            <p>
-                <strong>Name:</strong> flip_coin<br>
-                <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> A coin can be flipped to settle ties if wanted.
-            </p>
-        </li>
-        
+    </ol>
+
+    <p><br></p>
+    <h3>Contribution Tracker</h3>
+    <ol>
         <li>
             <p>
                 <strong>Name:</strong> contribution_tracker<br>
@@ -251,7 +280,7 @@
                 <strong>Summary:</strong> A system to hold a contribution score.
             </p>
         </li>
-        
+
         <li>
             <p>
                 <strong>Name:</strong> contribution_update<br>
@@ -259,7 +288,11 @@
                 <strong>Summary:</strong> Contribution should update when users interact with the project.
             </p>
         </li>
-        
+    </ol>
+
+    <p><br></p>
+    <h3>Other</h3>
+    <ol>
         <li>
             <p>
                 <strong>Name:</strong> user_login<br>
@@ -267,7 +300,7 @@
                 <strong>Summary:</strong> Users should be able to login to the project over a network.
             </p>
         </li>
-        
+
         <li>
             <p>
                 <strong>Name:</strong> save_project<br>
@@ -275,7 +308,7 @@
                 <strong>Summary:</strong> Users should be able to save the current project state.
             </p>
         </li>
-        
+
         <li>
             <p>
                 <strong>Name:</strong> view_settings<br>
@@ -283,7 +316,7 @@
                 <strong>Summary:</strong> The admin should be able to view the current project settings.
             </p>
         </li>
-        
+
         <li>
             <p>
                 <strong>Name:</strong> change_settings<br>
@@ -291,7 +324,7 @@
                 <strong>Summary:</strong> The admin should be able to change the current project settings.
             </p>
         </li>
-        
+
         <li>
             <p>
                 <strong>Name:</strong> view_contribution<br>
@@ -299,40 +332,43 @@
                 <strong>Summary:</strong> The admin should be able to view any user's contribution score.
             </p>
         </li>
-        
-        <li>
-            <p>
-                <strong>Name:</strong> platform_os<br>
-                <strong>Type:</strong> constraint<br>
-                <strong>Summary:</strong> Target platform is Windows
-            </p>
-        </li>
-        
-        <li>
-            <p>
-                <strong>Name:</strong> mindmap_graphics_risk<br>
-                <strong>Type:</strong> risk<br>
-                <strong>Summary:</strong> The members of the team do not have much experience implementing graphics.
-            </p>
-        </li>
-        
-        <li>
-            <p>
-                <strong>Name:</strong> networking_risk<br>
-                <strong>Type:</strong> risk<br>
-                <strong>Summary:</strong> The members of the team do not have any networking experience.
-            </p>
-        </li>
-        
-        <li>
-            <p>
-                <strong>Name:</strong> contribution_fairness<br>
-                <strong>Type:</strong> risk<br>
-                <strong>Summary:</strong> Contribution is calculated in a fair way that promotes interaction.
-            </p>
-        </li>
-
     </ol>
-    
+
+    <p><br></p>
+    <h3>Constraints and Risks</h3>
+      <ol>
+            <li>
+                <p>
+                    <strong>Name:</strong> platform_os<br>
+                    <strong>Type:</strong> constraint<br>
+                    <strong>Summary:</strong> Target platform is Windows
+                </p>
+            </li>
+
+            <li>
+                <p>
+                    <strong>Name:</strong> mindmap_graphics_risk<br>
+                    <strong>Type:</strong> risk<br>
+                    <strong>Summary:</strong> The members of the team do not have much experience implementing graphics.
+                </p>
+            </li>
+
+            <li>
+                <p>
+                    <strong>Name:</strong> networking_risk<br>
+                    <strong>Type:</strong> risk<br>
+                    <strong>Summary:</strong> The members of the team do not have any networking experience.
+                </p>
+            </li>
+
+            <li>
+                <p>
+                    <strong>Name:</strong> contribution_fairness<br>
+                    <strong>Type:</strong> risk<br>
+                    <strong>Summary:</strong> Contribution is calculated in a fair way that promotes interaction.
+                </p>
+            </li>
+      </ol>
+
 </body>
 </html>
