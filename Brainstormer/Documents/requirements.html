@@ -32,12 +32,28 @@
     <p><br></p>
     <h3>Idea List</h3>
     <ol>
+        
+        <li>
+            <p>
+                <strong>Name:</strong> idea<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> A data structure that contains a description of a user's idea.
+            </p>
+        </li>
 
         <li>
             <p>
                 <strong>Name:</strong> add_idea<br>
                 <strong>Type:</strong> functional<br>
                 <strong>Summary:</strong> Users should be able to add ideas to a list of ideas.
+            </p>
+        </li>
+        
+        <li>
+            <p>
+                <strong>Name:</strong> edit_idea<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> Users should be able to edit their own existing ideas.
             </p>
         </li>
 
@@ -53,7 +69,7 @@
             <p>
                 <strong>Name:</strong> view_ideas<br>
                 <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to view all ideas that have been added.
+                <strong>Summary:</strong> Users should be able to view all ideas that have been added, along with likes, comments, pros and cons, and images.
             </p>
         </li>
 
@@ -61,7 +77,7 @@
             <p>
                 <strong>Name:</strong> like_idea<br>
                 <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to upvote ideas that they like.
+                <strong>Summary:</strong> Users should be able to upvote ideas that they like. This is a boolean value per idea.
             </p>
         </li>
 
@@ -69,7 +85,7 @@
             <p>
                 <strong>Name:</strong> unlike_idea<br>
                 <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to remove likes that they have used.
+                <strong>Summary:</strong> Users should be able to remove likes that they have added to an idea.
             </p>
         </li>
 
@@ -78,6 +94,14 @@
                 <strong>Name:</strong> add_comment<br>
                 <strong>Type:</strong> functional<br>
                 <strong>Summary:</strong> Users should be able to add comments to ideas.
+            </p>
+        </li>
+        
+        <li>
+            <p>
+                <strong>Name:</strong> edit_comment<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> Users should be able to edit their own comments.
             </p>
         </li>
 
@@ -96,28 +120,20 @@
                 <strong>Summary:</strong> Users should be able to add a pro or con to an idea.
             </p>
         </li>
+        
+        <li>
+            <p>
+                <strong>Name:</strong> edit_pro_con<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> Users should be able to edit pros or cons they have added.
+            </p>
+        </li>
 
         <li>
             <p>
                 <strong>Name:</strong> delete_pro_con<br>
                 <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to delete their pros or cons.
-            </p>
-        </li>
-
-        <li>
-            <p>
-                <strong>Name:</strong> create_flowchart<br>
-                <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to create flow charts on ideas.
-            </p>
-        </li>
-
-        <li>
-            <p>
-                <strong>Name:</strong> create_graph<br>
-                <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to create graphs on ideas.
+                <strong>Summary:</strong> Users should be able to delete pros or cons they have added.
             </p>
         </li>
 
@@ -125,7 +141,15 @@
             <p>
                 <strong>Name:</strong> add_image<br>
                 <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to add images to ideas.
+                <strong>Summary:</strong> Users should be able to add images to their ideas.
+            </p>
+        </li>
+        
+        <li>
+            <p>
+                <strong>Name:</strong> remove_image<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> Users should be able to remove images from their ideas.
             </p>
         </li>
     </ol>
@@ -374,6 +398,14 @@
                     <strong>Name:</strong> platform_os<br>
                     <strong>Type:</strong> constraint<br>
                     <strong>Summary:</strong> Target platform is Windows
+                </p>
+            </li>
+          
+          <li>
+                <p>
+                    <strong>Name:</strong> image_limit<br>
+                    <strong>Type:</strong> constraint<br>
+                    <strong>Summary:</strong> Uploaded images may not be larger than 10 MB
                 </p>
             </li>
 
