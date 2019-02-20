@@ -393,7 +393,7 @@
             <p>
                 <strong>Name:</strong> vote_in_tournament<br>
                 <strong>Type:</strong> functional<br>
-                <strong>Summary:</strong> Users should be able to vote in the tournament.
+                <strong>Summary:</strong> Users should be able to vote in the tournament. This costs votes, which are given out each round. They do not carry over between rounds.
             </p>
         </li>
 
@@ -402,6 +402,22 @@
                 <strong>Name:</strong> next_tournament_round<br>
                 <strong>Type:</strong> functional<br>
                 <strong>Summary:</strong> When all users have voted, the least voted ideas are eliminated and the next round starts.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Name:</strong> vote_limit<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> During each round of the idea tournament, the program will give each user X amount of votes.<br> By default, this will be the number of ideas left divided by two. Users or the admin can change this ratio before a tournament begins.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Name:</strong> eliminate_idea<br>
+                <strong>Type:</strong> functional<br>
+                <strong>Summary:</strong> During the early rounds of the tournnament, ideas that didn't get any votes are removed from the pool of ideas within the tournament. <br>These are not removed from the idea list, however. Eventually the cutoff will move up, requiring ideas to have at least two votes, and so on.<br> This process is repeated until one idea remains that is liked by the majority of the group members.
             </p>
         </li>
 
