@@ -11,7 +11,7 @@ namespace BrainstormerData
 
     class IdeaContainer
     {
-        private List<Idea> myContainer;
+        private List<Idea> _container;
 
         // default constructor
         public IdeaContainer()
@@ -19,10 +19,10 @@ namespace BrainstormerData
             
         }
 
-        public List<Idea> MyContainer
+        public List<Idea> Container
         {
-            get { return myContainer; }
-            set { myContainer = value; }
+            get { return _container; }
+            set { _container = value;}
         }
     }
 }

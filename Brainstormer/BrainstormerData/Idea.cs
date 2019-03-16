@@ -17,10 +17,10 @@ namespace BrainstormerData
     public class Idea
     {
         // what is the idea
-        private string myDescription;
+        private string _description;
 
         // where inside the mindmap is this idea located
-        private mindMapPositionStruct myPosition;
+        private mindMapPositionStruct _position;
 
         // default constructor
         public Idea()
@@ -28,22 +28,22 @@ namespace BrainstormerData
             // if the position values are negative it
             // means that the idea is not displayed
             // in the mindmap
-            myPosition.x = -1;
-            myPosition.y = -1;
+            _position.x = -1;
+            _position.y = -1;
         }
 
         // -----  properties -----
 
         public string Description
         {
-            get { return myDescription; }
-            set { myDescription = value; }
+            get { return _description; }
+            set { _description = value; }
         }
 
         public mindMapPositionStruct Position
         {
-            get { return myPosition; }
-            set { myPosition = value; }
+            get { return _position; }
+            set { _position = value; }
         }
     }
 }
