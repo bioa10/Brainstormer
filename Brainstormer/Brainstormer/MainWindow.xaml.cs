@@ -23,6 +23,10 @@ namespace Brainstormer
         public MainWindow()
         {
             InitializeComponent();
+            this.Title = "Brainstormer";
+
+
         }
     }
+    
 }

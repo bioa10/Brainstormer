@@ -6,7 +6,27 @@
         xmlns:local="clr-namespace:Brainstormer"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+
+    <!--The underscores set the shortcut keys (Alt+f for "file")-->
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Open"/>
+                <MenuItem Header="_Close"/>
+                <MenuItem Header="_Save"/>
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="Mind Map"/>
+                <MenuItem Header="Idea List"/>
+            </MenuItem>
+            <MenuItem Header="Ketchup">
+                <MenuItem Header="Ketchup?"/>
+                <MenuItem Header="Ketchup!"/>
+            </MenuItem>
+        </Menu>
+        <StackPanel></StackPanel>
+    </DockPanel>
+
+
+
 </Window>
