@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BrainstormerData;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,9 +25,10 @@ namespace Brainstormer
         public MainWindow()
         {
             InitializeComponent();
-            this.Title = "Brainstormer";
+            this.Title = "BrainStormer";
 
-
+            // just testing to make sure the references work
+            Idea anIdea;
         }
     }
     
