@@ -1,6 +1,4 @@
-﻿using BrainstormerData;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,29 +16,20 @@ using System.Windows.Shapes;
 namespace Brainstormer
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MindMapPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MindMapPage : Page
     {
-        public MainWindow()
+        public MindMapPage()
         {
             InitializeComponent();
-            this.Title = "BrainStormer";
-
-            // just testing to make sure the references work
-            Idea anIdea;
-
-
-            
         }
 
-        private void MindMap_Click(object sender, System.EventArgs e)
+        
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // used to set the displayed page
-            _mainFrame.Navigate(new MindMapPage());
+
         }
-
     }
-
-    
 }
