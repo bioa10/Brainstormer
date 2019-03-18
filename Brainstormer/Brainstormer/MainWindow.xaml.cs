@@ -37,6 +37,7 @@ namespace Brainstormer
         private void MindMap_Click(object sender, System.EventArgs e)
         {
             // used to set the displayed page
+            //_mainFrame.Navigate(new MindMapPage());
             _mainFrame.Navigate(new MindMapPage());
         }
 

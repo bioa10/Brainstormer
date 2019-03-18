@@ -9,7 +9,6 @@
       Title="MindMapPage">
 
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="100,112,0,0" TextWrapping="Wrap" Text="MINDMAP!" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-
+        <ListBox HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Page>
