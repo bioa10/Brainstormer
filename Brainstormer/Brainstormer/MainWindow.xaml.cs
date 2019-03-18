@@ -33,10 +33,11 @@ namespace Brainstormer
 
 
             // just testing to make sure the references work
-            Idea anIdea = new Idea();
-            anIdea.Description = "A description";
+            // broken until a user is passed in the constructor
+            //Idea anIdea = new Idea();
+            //anIdea.Description = "A description";
 
-            anIdeaManager.Ideas.Add(anIdea);
+            //anIdeaManager.Ideas.Add(anIdea);
 
             aMindMapPage.SetItemSource(anIdeaManager);
 

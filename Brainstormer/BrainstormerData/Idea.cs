@@ -18,14 +18,20 @@ namespace BrainstormerData
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public Idea()
+        public Idea(string name, string description, User creator)
         {
             // if the position values are negative it
             // means that the idea is not displayed
             // in the mindmap
             MindMapX = -1;
             MindMapY = -1;
+            MindMapParent = -1;
             _votes = 0;
+            Creator = creator;
+            Comments = new List<Comment>();
+            ProCons = new List<ProCon>();
+            Likes = new List<User>();
+            Image = null;
         }
         public void SetMindMapPosition(int X, int Y)
         {
@@ -36,6 +42,14 @@ namespace BrainstormerData
 
         }
         public void LikeIdea(User user)
+        {
+
+        }
+        public void SetImage(Image image,User user)
+        {
+
+        }
+        public void DeleteImage(User user)
         {
 
         }
@@ -59,7 +73,7 @@ namespace BrainstormerData
             }
         }
         public User Creator { get; private set; }
-        public Image image { get; private set; }
+        public Image Image { get; private set; }
 
 
     }
