@@ -9,20 +9,14 @@ using System.Threading.Tasks;
 namespace BrainstormerData
 {
 
-    class IdeaContainer
+    class IdeaManager
     {
-        private List<Idea> _container;
-
         // default constructor
-        public IdeaContainer()
+        public IdeaManager()
         {
-            
+            Container = new List<Idea>();
         }
 
-        public List<Idea> Container
-        {
-            get { return _container; }
-            set { _container = value;}
-        }
+        public List<Idea> Container{ get; set; }
     }
 }

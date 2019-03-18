@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Idea.cs" />
-    <Compile Include="IdeaContainer.cs" />
+    <Compile Include="IdeaManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
