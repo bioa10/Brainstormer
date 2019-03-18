@@ -9,14 +9,17 @@ using System.Threading.Tasks;
 namespace BrainstormerData
 {
 
-    class IdeaManager
+    public class IdeaManager
     {
         // default constructor
         public IdeaManager()
         {
             Container = new List<Idea>();
         }
-
+        public void AddIdea(Idea idea)
+        {
+            Container.Add(idea);
+        }
         public List<Idea> Container{ get; set; }
     }
 }

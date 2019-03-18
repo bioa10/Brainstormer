@@ -22,13 +22,21 @@ namespace Brainstormer
     /// </summary>
     public partial class MainWindow : Window
     {
+        MindMapPage aMindMapPage = new MindMapPage();
+
         public MainWindow()
         {
             InitializeComponent();
             this.Title = "BrainStormer";
 
+            IdeaManager anIdeaManager = new IdeaManager();
+
+
             // just testing to make sure the references work
-            Idea anIdea;
+            Idea anIdea = new Idea();
+            anIdea.Description = "A description";
+
+            aMindMapPage.SetItemSource(anIdeaManager);
 
 
             
@@ -37,8 +45,9 @@ namespace Brainstormer
         private void MindMap_Click(object sender, System.EventArgs e)
         {
             // used to set the displayed page
-            //_mainFrame.Navigate(new MindMapPage());
-            _mainFrame.Navigate(new MindMapPage());
+            // _mainFrame.Navigate(new MindMapPage());
+            _mainFrame.Navigate(aMindMapPage);
+            //_mainFrame.Navigate(new Uri("http://www.google.com/"));
         }
 
     }

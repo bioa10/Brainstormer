@@ -8,7 +8,15 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="MindMapPage">
 
-    <Grid>
-        <ListBox HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
-    </Grid>
+
+    <ListBox Name="MindMapListBox" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="200" ItemsSource="{Binding}">
+
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <TextBlock Text="{Binding}"/>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+
+    </ListBox>
+    
 </Page>

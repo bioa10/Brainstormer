@@ -8,19 +8,14 @@ using System.Threading.Tasks;
 
 namespace BrainstormerData
 {
-    public struct mindMapPositionStruct
-    {
-        public int x;
-        public int y;
-    }
+
 
     public class Idea
     {
         // what is the idea
         private string _description;
 
-        // where inside the mindmap is this idea located
-        private mindMapPositionStruct _position;
+        
 
         // default constructor
         public Idea()
@@ -28,8 +23,8 @@ namespace BrainstormerData
             // if the position values are negative it
             // means that the idea is not displayed
             // in the mindmap
-            _position.x = -1;
-            _position.y = -1;
+            MindMapX = -1;
+            MindMapY = -1;
         }
 
         // -----  properties -----
@@ -39,11 +34,12 @@ namespace BrainstormerData
             get { return _description; }
             set { _description = value; }
         }
-
-        public mindMapPositionStruct Position
+        public override string ToString()
         {
-            get { return _position; }
-            set { _position = value; }
+            return Description;
         }
+
+        public int MindMapX { get; private set; }
+        public int MindMapY { get; private set; }
     }
 }

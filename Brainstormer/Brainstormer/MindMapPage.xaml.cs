@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BrainstormerData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,9 +24,15 @@ namespace Brainstormer
         public MindMapPage()
         {
             InitializeComponent();
+            
+           
+        }
+        public void SetItemSource(IdeaManager im)
+        {
+            //MindMapListBox.ItemsSource = im.Container;
+            MindMapListBox.ItemsSource = im.Container;
         }
 
-        
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
