@@ -36,9 +36,10 @@ namespace Brainstormer
             Idea anIdea = new Idea();
             anIdea.Description = "A description";
 
-            anIdeaManager.AddIdea(anIdea);
+            anIdeaManager.Ideas.Add(anIdea);
 
             aMindMapPage.SetItemSource(anIdeaManager);
+
 
 
             

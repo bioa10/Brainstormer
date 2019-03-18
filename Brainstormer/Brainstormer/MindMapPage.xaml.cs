@@ -30,7 +30,7 @@ namespace Brainstormer
         public void SetItemSource(IdeaManager im)
         {
             //MindMapListBox.ItemsSource = im.Container;
-            MindMapListBox.ItemsSource = im.Container;
+            MindMapListBox.ItemsSource = im.Ideas;
         }
 
 

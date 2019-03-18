@@ -14,12 +14,8 @@ namespace BrainstormerData
         // default constructor
         public IdeaManager()
         {
-            Container = new List<Idea>();
+            Ideas = new List<Idea>();
         }
-        public void AddIdea(Idea idea)
-        {
-            Container.Add(idea);
-        }
-        public List<Idea> Container{ get; set; }
+        public List<Idea> Ideas{ get; private set; }
     }
 }
