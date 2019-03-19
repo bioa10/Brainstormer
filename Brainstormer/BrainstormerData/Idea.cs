@@ -13,7 +13,9 @@ namespace BrainstormerData
 
     public class Idea
     {
+        // Variables backing properties
         private int _votes;
+        private int _mindMapParent;
 
         /// <summary>
         /// Default Constructor
@@ -33,48 +35,78 @@ namespace BrainstormerData
             Likes = new List<User>();
             Image = null;
         }
-        public void SetMindMapPosition(int X, int Y)
+        /// <summary>
+        /// Sets the X and Y position of the idea in the MindMap.
+        /// </summary>
+        /// <param name="X">An int that represents the X position. Must be greater than 0.</param>
+        /// <param name="Y">An int that represents the Y position. Must be greater than 0.</param>
+        public void SetMindMapPosition(int x, int y)
         {
-
+            if (x < 0) throw new ArgumentOutOfRangeException("X must be greater than 0.");
+            if (y < 0) throw new ArgumentOutOfRangeException("Y must be greater than 0.");
+            MindMapX = x;
+            MindMapY = y;
         }
-        public void SetMindMapParent(int ParentID)
-        {
-
-        }
+        /// <summary>
+        /// Adds a user to the list of users that like an idea.
+        /// </summary>
+        /// <param name="user">The user to add to the like list. If already in the list nothing happens.</param>
         public void LikeIdea(User user)
         {
-
+            if (user == null) throw new ArgumentNullException("user can not be null.");
+            if (!Likes.Contains(user)) Likes.Add(user);
         }
+        /// <summary>
+        /// Removes a user from the list of users that like an idea.
+        /// </summary>
+        /// <param name="user">The user to remove from the like list. If not in the list nothing happens.</param>
+        public void UnlikeIdea(User user)
+        {
+            if (user == null) throw new ArgumentNullException("user can not be null.");
+            if (Likes.Contains(user)) Likes.Remove(user);
+        }
+        /// <summary>
+        /// Sets the image of the idea if the user has permission.
+        /// </summary>
+        /// <param name="image">The image to set on the idea. Pass null to remove the image.</param>
+        /// <param name="user">The user that is requesting to set the image.</param>
         public void SetImage(Image image,User user)
         {
-
-        }
-        public void DeleteImage(User user)
-        {
-
+            if (user == null) throw new ArgumentNullException("user can not be null.");
+            if (user.Equals(Creator)) Image = image;
+            else throw new ArgumentException("user does not have permission to change image.");
         }
 
-        // -----  properties -----
+        // ----- default properties -----
         public string Name { get; set; }
         public string Description { get; set; }
         public int MindMapX { get; private set; }
         public int MindMapY { get; private set; }
-        public int MindMapParent { get; private set; }
         public List<Comment> Comments { get; private set; }
         public List<ProCon> ProCons { get; private set; }
         public List<User> Likes { get; private set; }
+        public User Creator { get; private set; }
+        public Image Image { get; private set; }
+
+        // ----- custom properties -----
+        public int MindMapParent
+        {
+            get { return _mindMapParent; }
+            set
+            {
+                if (value < 0) throw new ArgumentOutOfRangeException();
+                _mindMapParent = value;
+            }
+        }
+
         public int Votes
         {
             get { return _votes; }
             set
             {
-                if (value < 0) { throw new ArgumentOutOfRangeException(); }
+                if (value < 0) throw new ArgumentOutOfRangeException();
                 _votes = value;
             }
         }
-        public User Creator { get; private set; }
-        public Image Image { get; private set; }
-
-
     }
 }
