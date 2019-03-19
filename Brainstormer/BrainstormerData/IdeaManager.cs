@@ -16,6 +16,8 @@ namespace BrainstormerData
         {
             Ideas = new List<Idea>();
         }
+
+        // ----- default properties -----
         public List<Idea> Ideas{ get; private set; }
     }
 }

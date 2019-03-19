@@ -23,6 +23,7 @@ namespace BrainstormerData
         public Idea(string name, string description, User creator)
         {
             if (name == null || name == "") throw new ArgumentNullException("Name can not be empty or null.");
+            if (creator == null) throw new ArgumentNullException("creator can not be null.");
             Name = name;
             Description = description;
             // if the position values are negative it
