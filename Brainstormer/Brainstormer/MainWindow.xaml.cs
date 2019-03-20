@@ -33,13 +33,15 @@ namespace Brainstormer
 
             User aUser = new User();
 
-            // broken until a user is passed in the constructor
-           // Idea anIdea = new Idea(User);
-            //anIdea.Description = "A description";
+         
+            string name = "This is an idea name";
+            string description = "This is an idea description";
+       
+            Idea anIdea = new Idea(name, description, aUser);
+          
+            anIdeaManager.Ideas.Add(anIdea);
 
-            //anIdeaManager.Ideas.Add(anIdea);
-
-            aMindMapPage.SetItemSource(anIdeaManager);
+            aMindMapPage.SetItemSource(anIdeaManager.Ideas);
 
 
 

@@ -67,6 +67,13 @@ namespace BrainstormerData
             else return false;
             return true;
         }
+
+        // please do not remove, it is currently needed for displaying descriptions in the mind map ¯\_(ツ)_/¯
+        public override string ToString()
+        {
+            return Description;
+        }
+
         /// <summary>
         /// Sets the X and Y position of the idea in the MindMap.
         /// </summary>
@@ -128,7 +135,8 @@ namespace BrainstormerData
             get { return _mindMapParent; }
             set
             {
-                if (value < 0) throw new ArgumentOutOfRangeException("ParentID must be greater than or equal to 0.");
+               // this gets thrown when the default value of -1 is set it the constructor
+               // if (value < 0) throw new ArgumentOutOfRangeException("ParentID must be greater than or equal to 0.");
                 _mindMapParent = value;
             }
         }

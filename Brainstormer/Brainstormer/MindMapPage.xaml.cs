@@ -27,12 +27,18 @@ namespace Brainstormer
             
            
         }
+        /*
         public void SetItemSource(IdeaManager im)
         {
             //MindMapListBox.ItemsSource = im.Container;
             MindMapListBox.ItemsSource = im.Ideas;
         }
-
+*/
+        public void SetItemSource(List<Idea> ideas)
+        {
+            //MindMapListBox.ItemsSource = im.Container;
+            MindMapListBox.ItemsSource = ideas;
+        }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
