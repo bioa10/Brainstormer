@@ -67,13 +67,6 @@ namespace BrainstormerData
             else return false;
             return true;
         }
-
-        // please do not remove, it is currently needed for displaying descriptions in the mind map ¯\_(ツ)_/¯
-        public override string ToString()
-        {
-            return Description;
-        }
-
         /// <summary>
         /// Sets the X and Y position of the idea in the MindMap.
         /// </summary>
@@ -116,6 +109,14 @@ namespace BrainstormerData
             if (user.Equals(Creator)) Image = image;
             else return false;
             return true;
+        }
+        /// <summary>
+        /// Sets the ToString function.
+        /// </summary>
+        /// <returns>Returns the description of the Idea.</returns>
+        public override string ToString()
+        {
+            return Description;
         }
 
         // ----- default properties -----
