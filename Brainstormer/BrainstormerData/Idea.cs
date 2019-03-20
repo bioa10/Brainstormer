@@ -32,7 +32,7 @@ namespace BrainstormerData
             MindMapX = -1;
             MindMapY = -1;
             // -1 means no parent
-            MindMapParent = -1;
+            _mindMapParent = -1;
             _votes = 0;
             Creator = creator;
             Comments = new List<Comment>();
@@ -135,8 +135,7 @@ namespace BrainstormerData
             get { return _mindMapParent; }
             set
             {
-               // this gets thrown when the default value of -1 is set it the constructor
-               // if (value < 0) throw new ArgumentOutOfRangeException("ParentID must be greater than or equal to 0.");
+               if (value < 0) throw new ArgumentOutOfRangeException("ParentID must be greater than or equal to 0.");
                 _mindMapParent = value;
             }
         }
