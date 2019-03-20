@@ -31,10 +31,10 @@ namespace Brainstormer
 
             IdeaManager anIdeaManager = new IdeaManager();
 
+            User aUser = new User();
 
-            // just testing to make sure the references work
             // broken until a user is passed in the constructor
-            //Idea anIdea = new Idea();
+           // Idea anIdea = new Idea(User);
             //anIdea.Description = "A description";
 
             //anIdeaManager.Ideas.Add(anIdea);
