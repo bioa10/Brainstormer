@@ -1,0 +1,7 @@
+This is the idea storage file
+-----------------------------
+This is an idea name
+This is an idea description
+-----------------------------
+Internet connected juicer
+Make a $400 juicer that doesn't work without wifi
