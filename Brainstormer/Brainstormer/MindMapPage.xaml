@@ -4,19 +4,29 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Brainstormer"
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-      Title="MindMapPage">
+      mc:Ignorable="d"
+      Title="MindMapPage" Height="576" Width="1024"
+      MouseMove="MouseMoveHandler"
+          Background="LemonChiffon">
+    <Grid>
+        <Ellipse Name="ellipse" Fill="Tomato" 
+             Width="100" Height="100">
+        </Ellipse>
+
+        <ListBox Name="MindMapListBox" HorizontalAlignment="Right" Width="257" ItemsSource="{Binding}" SelectionChanged="MindMapListBox_SelectionChanged" Margin="0,458,767,0" Height="118" VerticalAlignment="Top">
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
 
 
-    <ListBox Name="MindMapListBox" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="200" ItemsSource="{Binding}">
+        <ListBox Name="DebugInfoBox" HorizontalAlignment="Left" Height="105" VerticalAlignment="Top" Width="257" ItemsSource="{Binding}" IsHitTestVisible="False"/>
 
-        <ListBox.ItemTemplate>
-            <DataTemplate>
-                <TextBlock Text="{Binding}"/>
-            </DataTemplate>
-        </ListBox.ItemTemplate>
 
-    </ListBox>
-    
+    </Grid>
+
 </Page>

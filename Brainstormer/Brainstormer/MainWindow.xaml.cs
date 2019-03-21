@@ -42,10 +42,6 @@ namespace Brainstormer
             anIdeaManager.Ideas.Add(anIdea);
 
             aMindMapPage.SetItemSource(anIdeaManager.Ideas);
-
-
-
-            
         }
 
         private void MindMap_Click(object sender, System.EventArgs e)
@@ -56,6 +52,7 @@ namespace Brainstormer
             //_mainFrame.Navigate(new Uri("http://www.google.com/"));
         }
 
+        
     }
 
     

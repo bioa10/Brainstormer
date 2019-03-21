@@ -12,5 +12,14 @@ namespace BrainstormerData
         {
 
         }
+
+        // ----- default properties -----
+        public string UserName { get; private set; }
+
+        public string UserPassword { get; private set; }
+
+        public int ContributionScore { get; private set; }
+
+        public int VotesLeft { get; private set; }
     }
 }

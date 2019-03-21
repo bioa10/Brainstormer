@@ -113,10 +113,10 @@ namespace BrainstormerData
         /// <summary>
         /// Sets the ToString function.
         /// </summary>
-        /// <returns>Returns the description of the Idea.</returns>
+        /// <returns>Returns the name of the Idea.</returns>
         public override string ToString()
         {
-            return Description;
+            return Name;
         }
 
         // ----- default properties -----
