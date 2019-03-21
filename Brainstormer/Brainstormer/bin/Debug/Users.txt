@@ -1,0 +1,7 @@
+This file stores each user's data
+---------------------------------
+Username
+Password
+---------------------------------
+Mr. Incredible
+Kronos
