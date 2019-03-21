@@ -60,6 +60,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FileReader.cs" />
+    <Compile Include="IdeaTournament.cs" />
     <Compile Include="MindMap.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>

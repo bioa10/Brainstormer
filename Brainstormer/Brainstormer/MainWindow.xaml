@@ -17,8 +17,8 @@
             </MenuItem>
             <MenuItem Header="_View">
                 <MenuItem Header="Mind Map" Click="MindMap_Click"/>
-                <MenuItem Header="Idea List"/>
-                <MenuItem Header="Idea Tournament"/>
+                <MenuItem Header="Idea List" Click="Idea_List_Click"/>
+                <MenuItem Header="Idea Tournament" Click="Idea_Tournament_Click"/>
                 
                 
             </MenuItem>

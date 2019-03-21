@@ -23,6 +23,8 @@ namespace Brainstormer
     public partial class MainWindow : Window
     {
         MindMapPage aMindMapPage = new MindMapPage();
+        IdeaListPage anIdeaListPage = new IdeaListPage();
+        IdeaTournamentPage anIdeaTournamentPage = new IdeaTournamentPage();
 
         public MainWindow()
         {
@@ -31,15 +33,8 @@ namespace Brainstormer
 
             IdeaManager anIdeaManager = new IdeaManager();
 
-            User aUser = new User();
-
-         
-            string name = "This is an idea name";
-            string description = "This is an idea description";
-       
-            Idea anIdea = new Idea(name, description, aUser);
-          
-            anIdeaManager.Ideas.Add(anIdea);
+            FileReader aFileReader = new FileReader("Ideas.txt");
+            aFileReader.GetData(ref anIdeaManager);
 
             aMindMapPage.SetItemSource(anIdeaManager.Ideas);
         }
@@ -47,13 +42,21 @@ namespace Brainstormer
         private void MindMap_Click(object sender, System.EventArgs e)
         {
             // used to set the displayed page
-            // _mainFrame.Navigate(new MindMapPage());
             _mainFrame.Navigate(aMindMapPage);
             //_mainFrame.Navigate(new Uri("http://www.google.com/"));
         }
 
-        
-    }
+        private void Idea_List_Click(object sender, System.EventArgs e)
+        {
+            // used to set the displayed page
+            _mainFrame.Navigate(anIdeaListPage);
+        }
 
-    
+        private void Idea_Tournament_Click(object sender, System.EventArgs e)
+        {
+            // used to set the displayed page
+            _mainFrame.Navigate(anIdeaTournamentPage);
+           
+        }
+    }
 }
