@@ -1,7 +1,12 @@
 This is the idea storage file
 -----------------------------
-This is an idea name
-This is an idea description
+Idea name
+Idea description
+Username of owner
 -----------------------------
 Internet connected juicer
 Make a $400 juicer that doesn't work without wifi
+Mr. Incredible
+Burger making robot
+Build a robotic grill that makes burgers
+Hank Hill

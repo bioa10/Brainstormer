@@ -8,9 +8,14 @@ namespace BrainstormerData
 {
     public class User
     {
-        public User()
+        public User(string newUserName, string newUserPassword, int newContributionScore, int newVotesLeft, bool newIsAdmin, bool newIsHost)
         {
-
+            UserName = newUserName;
+            UserPassword = newUserPassword;
+            ContributionScore = newContributionScore;
+            VotesLeft = newVotesLeft;
+            isAdmin = newIsAdmin;
+            isHost = newIsHost;
         }
 
         // ----- default properties -----
@@ -21,5 +26,9 @@ namespace BrainstormerData
         public int ContributionScore { get; private set; }
 
         public int VotesLeft { get; private set; }
+
+        public bool isAdmin { get; private set; }
+
+        public bool isHost { get; private set; }
     }
 }

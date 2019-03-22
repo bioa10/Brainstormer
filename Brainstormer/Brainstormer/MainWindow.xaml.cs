@@ -33,7 +33,7 @@ namespace Brainstormer
 
             IdeaManager anIdeaManager = new IdeaManager();
 
-            FileReader aFileReader = new FileReader("Ideas.txt");
+            FileReader aFileReader = new FileReader();
             aFileReader.GetData(ref anIdeaManager);
 
             aMindMapPage.SetItemSource(anIdeaManager.Ideas);

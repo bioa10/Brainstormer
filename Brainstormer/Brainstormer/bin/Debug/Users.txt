@@ -2,6 +2,20 @@ This file stores each user's data
 ---------------------------------
 Username
 Password
+Contribution score
+Votes left
+Is admin?
+Is host?
 ---------------------------------
 Mr. Incredible
-Kronos
+kronos
+50
+3
+True
+True
+Hank Hill
+propane
+40
+2
+False
+False

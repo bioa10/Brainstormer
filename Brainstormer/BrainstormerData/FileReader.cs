@@ -8,26 +8,9 @@ namespace BrainstormerData
 {
     public class FileReader
     {
-        public FileReader(string newFileName)
+        public FileReader()
         {
-            FileName = newFileName;
-
-            if(FileName == "Ideas.txt")
-            {
-                // System.IO.File.Exists
-                // FileData = System.IO.File.ReadAllLines(@"Ideas.txt");
-                FileData = System.IO.File.ReadAllLines(FileName);
-                foreach (string line in FileData)
-                {
-                    // testing in console
-                    Console.WriteLine(line);
-                }
-            }
-            else
-            {
-                // an unknown file name was received
-                throw new ArgumentException("An invalid file name was passed to the file reader");
-            }
+            
         }
 
         // warning: this does not append, it deletes previous content
@@ -35,38 +18,125 @@ namespace BrainstormerData
         {
             anIdeaManager.Ideas.Clear();
 
-            for(int i = 0; i < FileData.Length; i++)
+            string[] fileData = ReadFile("Ideas.txt");
+
+            List<User> aListOfUsers = new List<User>();
+            GetData(ref aListOfUsers);
+
+            for (int i = 0; i < fileData.Length; i++)
             {
                 string ideaName;
                 string ideaDescription;
-                User aUser = new User();
-
-                // skips the first lines to bypass by the file header info
+                string ownerUsername;
+               
+                // skips the first lines to bypass the file header info
                 // more lines may be added to the file header by raising this number
-                if(i > 4)
+                if(i > 5)
                 {
-                    ideaName = FileData[i];
+                    ideaName = fileData[i];
                     i++;
-                    ideaDescription = FileData[i];
+                    ideaDescription = fileData[i];
+                    i++;
+                    ownerUsername = fileData[i];
 
-                    // TODO: populate information to the user object here
-                    // go find the user that created this idea, maybe use a username stored in the ideas file
+                    bool foundUser = false;
+                    int userIterator;
+                    for (userIterator = 0;  userIterator < aListOfUsers.Count; userIterator++)
+                    {
+                        if (aListOfUsers[userIterator].UserName == ownerUsername)
+                        {
+                            foundUser = true;
+                            break;
+                        }
+                    }
+
+                    if (foundUser == false)
+                    {
+                        throw new Exception("The owner of an idea could not be found in users");
+                    }
+
+                    User aUser = aListOfUsers[userIterator];
+
                     Idea anIdea = new Idea(ideaName, ideaDescription, aUser);
 
                     anIdeaManager.Ideas.Add(anIdea);
                 }
             }
         }
+     
+        // warning: this does not append, it deletes previous content
+        public void GetData(ref List<User> aListOfUsers)
+        {
+            aListOfUsers.Clear();
 
-        // just a test
-        //public IdeaTournament GetData(ref IdeaTournament anIdeaTournament)
-       // {
+            string[] fileData = ReadFile("Users.txt");
+           
+            for (int i = 0; i < fileData.Length; i++)
+            {
+                // skips the first lines to bypass the file header info
+                // more lines may be added to the file header by raising this number
+                if (i > 8)
+                {
+                    string userName = fileData[i];
+                    i++;
+                    string userPassword = fileData[i];
+                    i++;
 
-       // }
-      
+                    int contributionScore;
+                    if (!Int32.TryParse(fileData[i], out contributionScore))
+                    {
+                        throw new FormatException("Failed to read contribution score at line: " + i);
+                    }
+                    i++;
+
+                    int votesLeft;
+                    if (!Int32.TryParse(fileData[i], out votesLeft))
+                    {
+                        throw new FormatException("Failed to read votes at line: " + i);
+                    }
+                    i++;
+
+                    bool isAdmin;
+                    if (!Boolean.TryParse(fileData[i], out isAdmin))
+                    {
+                        throw new FormatException("Failed to read admin boolean at line: " + i);
+                    }
+                    i++;
+
+                    bool isHost;
+                    if (!Boolean.TryParse(fileData[i], out isHost))
+                    {
+                        throw new FormatException("Failed to read host boolean at line: " + i);
+                    }
+
+                    User aUser = new User(userName, userPassword, contributionScore, votesLeft, isAdmin, isHost);
+                    aListOfUsers.Add(aUser);
+                }
+            }
+        }
+
+        public string[] ReadFile(string fileName)
+        {
+            if (fileName != "Ideas.txt" && fileName != "Users.txt")
+            {
+                // an unknown file name was received
+                throw new ArgumentException("An invalid file name was passed to the file reader");
+            }
+
+            // System.IO.File.Exists
+            // FileData = System.IO.File.ReadAllLines(@"Ideas.txt");
+            string[] fileData = System.IO.File.ReadAllLines(fileName);
+
+            // view data that was read in console for testing purposes
+            foreach (string line in fileData)
+            {
+                Console.WriteLine(line);
+            }
+
+            return fileData;
+        }
 
         // ----- default properties -----
-        private string[] FileData { get; set; }
-        private string FileName { get; set; }
+       
     }
 }

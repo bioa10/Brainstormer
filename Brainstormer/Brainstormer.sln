@@ -8,6 +8,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrainstormerData", "BrainstormerData\BrainstormerData.csproj", "{33759F25-EC19-4169-880F-892A66B30030}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A5520357-8CAD-4EC3-95E3-84CD21335F0C}"
+	ProjectSection(SolutionItems) = preProject
+		Brainstormer\bin\Debug\Ideas.txt = Brainstormer\bin\Debug\Ideas.txt
+		Brainstormer\bin\Debug\Users.txt = Brainstormer\bin\Debug\Users.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
