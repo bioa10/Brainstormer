@@ -16,6 +16,7 @@
         <Label Content="Admin / Developer Options" HorizontalAlignment="Left" Margin="10,347,0,0" VerticalAlignment="Top" Width="166"/>
         <Button Content="Start Demo" HorizontalAlignment="Left" Margin="24,417,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click"/>
         <ListBox Name="IdeaViewer" HorizontalAlignment="Left" Height="166" Margin="297,70,0,0" VerticalAlignment="Top" Width="431"/>
+        <Label Content="Round #" HorizontalAlignment="Left" Margin="297,39,0,0" VerticalAlignment="Top" Width="138"/>
 
     </Grid>
 </Page>

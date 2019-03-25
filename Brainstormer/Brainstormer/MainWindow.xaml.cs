@@ -31,10 +31,16 @@ namespace Brainstormer
             InitializeComponent();
             this.Title = "BrainStormer";
 
+            // create Idea and User manager objects
             IdeaManager anIdeaManager = new IdeaManager();
+            UserManager aUserManager = new UserManager();
 
+            // create FileReader object
             FileReader aFileReader = new FileReader();
+
+            // read data from local files into the managers
             aFileReader.GetData(ref anIdeaManager);
+            aFileReader.GetData(ref aUserManager);
 
             aMindMapPage.SetItemSource(anIdeaManager.Ideas);
 

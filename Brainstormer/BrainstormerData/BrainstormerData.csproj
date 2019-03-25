@@ -64,6 +64,7 @@
     <Compile Include="IdeaTournament.cs" />
     <Compile Include="MindMap.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comment.cs" />

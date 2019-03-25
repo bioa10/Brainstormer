@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// this class stores and manages data for idea tournaments
 namespace BrainstormerData
 {
     public class IdeaTournament
@@ -11,6 +12,7 @@ namespace BrainstormerData
         public IdeaTournament(IdeaManager newIdeaManager)
         {
             anIdeaManager = newIdeaManager;
+            round = 0;
         }
 
         
@@ -19,6 +21,9 @@ namespace BrainstormerData
 
         // ----- default properties -----
         public IdeaManager anIdeaManager { get; set; }
+
+        // the current round that the tournament is on
+        public int round { get; set; }
 
     }
 }

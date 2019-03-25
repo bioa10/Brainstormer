@@ -8,23 +8,30 @@ namespace BrainstormerData
 {
     public class FileReader
     {
+        // default constructor
         public FileReader()
         {
             
         }
 
         // warning: this does not append, it deletes previous content
+        // overloaded function that reads Idea data from text into objects
         public void GetData(ref IdeaManager anIdeaManager)
         {
+            // deletes the old contents of the referenced IdeaManager
             anIdeaManager.Ideas.Clear();
 
+            // reads the associated file from the working directory to an array of strings
             string[] fileData = ReadFile("Ideas.txt");
 
-            List<User> aListOfUsers = new List<User>();
-            GetData(ref aListOfUsers);
+            // creates and reads in a local UserManager for adding owner data to the ideas
+            UserManager aUserManager = new UserManager();
+            GetData(ref aUserManager);
 
+            // for the length of the string array
             for (int i = 0; i < fileData.Length; i++)
             {
+                // these variables store data to later be compiled into an Idea object
                 string ideaName;
                 string ideaDescription;
                 string ownerUsername;
@@ -33,42 +40,49 @@ namespace BrainstormerData
                 // more lines may be added to the file header by raising this number
                 if(i > 5)
                 {
+                    // reads lines from the file into the storage variables
                     ideaName = fileData[i];
                     i++;
                     ideaDescription = fileData[i];
                     i++;
                     ownerUsername = fileData[i];
 
+                    // searches the UserManager for a user with the matching name of the idea owner
+                    // might be better to eventually use a unique ID or something instead
                     bool foundUser = false;
                     int userIterator;
-                    for (userIterator = 0;  userIterator < aListOfUsers.Count; userIterator++)
+                    for (userIterator = 0;  userIterator < aUserManager.UserList.Count; userIterator++)
                     {
-                        if (aListOfUsers[userIterator].UserName == ownerUsername)
+                        if (aUserManager.UserList[userIterator].UserName == ownerUsername)
                         {
                             foundUser = true;
                             break;
                         }
                     }
 
+                    // if an idea has an owner that doesn't exist, this is a problem
                     if (foundUser == false)
                     {
                         throw new Exception("The owner of an idea could not be found in users");
                     }
 
-                    User aUser = aListOfUsers[userIterator];
+                    // compiles all of the read data into a single Idea object
+                    Idea anIdea = new Idea(ideaName, ideaDescription, aUserManager.UserList[userIterator]);
 
-                    Idea anIdea = new Idea(ideaName, ideaDescription, aUser);
-
+                    // adds the Idea object to the IdeaManager
                     anIdeaManager.Ideas.Add(anIdea);
                 }
             }
         }
      
         // warning: this does not append, it deletes previous content
-        public void GetData(ref List<User> aListOfUsers)
+        // overloaded function that reads User data from text into objects
+        public void GetData(ref UserManager aUserManager)
         {
-            aListOfUsers.Clear();
+            // deletes the old contents of the referenced UserManager
+            aUserManager.UserList.Clear();
 
+            // reads the associated file from the working directory to an array of strings
             string[] fileData = ReadFile("Users.txt");
            
             for (int i = 0; i < fileData.Length; i++)
@@ -77,40 +91,50 @@ namespace BrainstormerData
                 // more lines may be added to the file header by raising this number
                 if (i > 8)
                 {
-                    string userName = fileData[i];
-                    i++;
-                    string userPassword = fileData[i];
-                    i++;
+                    // these variables store data to later be compiled into an Idea object
+                    string userName;
+                    string userPassword;
 
                     int contributionScore;
+                    int votesLeft;
+
+                    bool isAdmin;
+                    bool isHost;
+
+                    // reads lines from the file into the storage variables
+                    userName = fileData[i];
+                    i++;
+                    userPassword = fileData[i];
+                    i++;
+
                     if (!Int32.TryParse(fileData[i], out contributionScore))
                     {
                         throw new FormatException("Failed to read contribution score at line: " + i);
                     }
                     i++;
 
-                    int votesLeft;
                     if (!Int32.TryParse(fileData[i], out votesLeft))
                     {
                         throw new FormatException("Failed to read votes at line: " + i);
                     }
                     i++;
 
-                    bool isAdmin;
                     if (!Boolean.TryParse(fileData[i], out isAdmin))
                     {
                         throw new FormatException("Failed to read admin boolean at line: " + i);
                     }
                     i++;
 
-                    bool isHost;
                     if (!Boolean.TryParse(fileData[i], out isHost))
                     {
                         throw new FormatException("Failed to read host boolean at line: " + i);
                     }
 
+                    // compiles all of the read data into a single User object
                     User aUser = new User(userName, userPassword, contributionScore, votesLeft, isAdmin, isHost);
-                    aListOfUsers.Add(aUser);
+
+                    // adds the User object to the UserManager
+                    aUserManager.UserList.Add(aUser);
                 }
             }
         }
