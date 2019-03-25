@@ -19,11 +19,11 @@
                 <MenuItem Header="Mind Map" Click="MindMap_Click"/>
                 <MenuItem Header="Idea List" Click="Idea_List_Click"/>
                 <MenuItem Header="Idea Tournament" Click="Idea_Tournament_Click"/>
-                
-                
             </MenuItem>
-            <MenuItem Header="Watermelon">
-   
+            
+            <MenuItem Header="Admin">
+                <MenuItem Header="Contribution Scores"/>
+                <MenuItem Header="Settings"/>
             </MenuItem>
         </Menu>
         <StackPanel></StackPanel>

@@ -10,3 +10,15 @@ Mr. Incredible
 Burger making robot
 Build a robotic grill that makes burgers
 Hank Hill
+Text based adventure game
+Create an interactive story
+Hank Hill
+Build an FTP client
+A computer program for transfering data between computers and servers
+Hank Hill
+Build an operating system
+Build a simple operating system for a computer
+Hank Hill
+Create an encryption program
+Create a program that can encrypt and decrypt a string of text
+Hank Hill

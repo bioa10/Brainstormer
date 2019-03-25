@@ -37,6 +37,9 @@ namespace Brainstormer
             aFileReader.GetData(ref anIdeaManager);
 
             aMindMapPage.SetItemSource(anIdeaManager.Ideas);
+
+            // sends the ideas to the idea tournament
+            anIdeaTournamentPage.GetIdeaManager(anIdeaManager);
         }
 
         private void MindMap_Click(object sender, System.EventArgs e)

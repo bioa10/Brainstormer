@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BrainstormerData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,11 +24,32 @@ namespace Brainstormer
         public IdeaTournamentPage()
         {
             InitializeComponent();
+            
+        }
+
+        // this must be called before the page becomes functional
+        public void GetIdeaManager(IdeaManager anIdeaManager)
+        {
+            anIdeaTournament = new IdeaTournament(anIdeaManager);
+        }
+
+        void DisplayIdeas()
+        {
+            IdeaViewer.ItemsSource = anIdeaTournament.anIdeaManager.Ideas;
         }
 
         private void StartTournament_Click(object sender, RoutedEventArgs e)
         {
             // alert other users of a starting tournament
+            DisplayIdeas();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // ----- default properties -----
+        private IdeaTournament anIdeaTournament { get; set; }
     }
 }

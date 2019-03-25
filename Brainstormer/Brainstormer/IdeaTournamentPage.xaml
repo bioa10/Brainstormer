@@ -6,10 +6,16 @@
       xmlns:local="clr-namespace:Brainstormer"
       mc:Ignorable="d" 
       d:DesignHeight="576" d:DesignWidth="1024"
-      Title="IdeaTournamentPage">
+      Height="576" Width="1024"
+      Title="IdeaTournamentPage"
+      Background="GhostWhite">
 
     <Grid>
         <Button Name="StartTournament" Content="Start Tournament" HorizontalAlignment="Left" Margin="60,70,0,0" VerticalAlignment="Top" Width="102" Height="29" Click="StartTournament_Click"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="10,378,0,0" Stroke="Black" VerticalAlignment="Top" Width="256"/>
+        <Label Content="Admin / Developer Options" HorizontalAlignment="Left" Margin="10,347,0,0" VerticalAlignment="Top" Width="166"/>
+        <Button Content="Start Demo" HorizontalAlignment="Left" Margin="24,417,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click"/>
+        <ListBox Name="IdeaViewer" HorizontalAlignment="Left" Height="166" Margin="297,70,0,0" VerticalAlignment="Top" Width="431"/>
 
     </Grid>
 </Page>

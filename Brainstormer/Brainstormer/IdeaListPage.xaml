@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:Brainstormer"
       mc:Ignorable="d" 
       d:DesignHeight="576" d:DesignWidth="1024"
+      Height="576" Width="1024"
       Title="IdeaListPage">
 
     <Grid>

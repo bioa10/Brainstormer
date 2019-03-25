@@ -13,7 +13,7 @@
              Width="100" Height="100">
         </Ellipse>
 
-        <ListBox Name="MindMapListBox" HorizontalAlignment="Right" Width="257" ItemsSource="{Binding}" SelectionChanged="MindMapListBox_SelectionChanged" Margin="0,458,767,0" Height="118" VerticalAlignment="Top">
+        <ListBox Name="MindMapListBox" HorizontalAlignment="Right" Width="257" ItemsSource="{Binding}" SelectionChanged="MindMapListBox_SelectionChanged" Margin="0,352,767,0" Height="118" VerticalAlignment="Top">
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
