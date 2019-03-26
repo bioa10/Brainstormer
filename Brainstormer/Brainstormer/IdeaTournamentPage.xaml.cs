@@ -16,6 +16,8 @@ using System.Windows.Shapes;
 
 namespace Brainstormer
 {
+     
+
     /// <summary>
     /// Interaction logic for IdeaTournamentPage.xaml
     /// </summary>
@@ -35,13 +37,32 @@ namespace Brainstormer
 
         void DisplayIdeas()
         {
-            IdeaViewer.ItemsSource = anIdeaTournament.anIdeaManager.Ideas;
+            IdeaViewerBox.ItemsSource = anIdeaTournament.anIdeaManager.Ideas;
         }
 
         private void StartTournament_Click(object sender, RoutedEventArgs e)
         {
-            // alert other users of a starting tournament
+            // TODO: alert other users of a starting tournament
+
             DisplayIdeas();
+
+            // Hidden hides the button but it will still take up space
+            // Collapsed will collapse it so that it has zero width and height
+            StartTournamentButton.Visibility = Visibility.Hidden;
+
+            RoundLabel.Content = "Round 1";
+            InfoLabel.Content = "Click the ideas that you want to vote for";
+            VotesLeftLabel.Content = "You have X votes left";
+
+            //IdeaViewerBox.SelectedItem
+        }
+
+      
+        
+
+
+        private void OnMouseLeftButtonDown(object sender, RoutedEventArgs e)
+        {
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -51,5 +72,7 @@ namespace Brainstormer
 
         // ----- default properties -----
         private IdeaTournament anIdeaTournament { get; set; }
+
+        private List<Idea> selectedIdeas { get; set; }
     }
 }
