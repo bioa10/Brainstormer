@@ -30,12 +30,12 @@ namespace Brainstormer
         // this must be called before the page becomes functional
         public void GetIdeaManager(IdeaManager anIdeaManager)
         {
-            anIdeaTournament = new IdeaTournament(anIdeaManager);
+            anIdeaTournament = new IdeaTournament(anIdeaManager,aUserMananger, false);
         }
 
         void DisplayIdeas()
         {
-            IdeaViewer.ItemsSource = anIdeaTournament.anIdeaManager.Ideas;
+            IdeaViewer.ItemsSource = anIdeaTournament.IdeaManager.Ideas;
         }
 
         private void StartTournament_Click(object sender, RoutedEventArgs e)
@@ -51,5 +51,6 @@ namespace Brainstormer
 
         // ----- default properties -----
         private IdeaTournament anIdeaTournament { get; set; }
+        private UserManager aUserMananger { get; set; }
     }
 }

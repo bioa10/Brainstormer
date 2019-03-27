@@ -11,10 +11,21 @@ namespace BrainstormerData
 
     public class IdeaManager
     {
-        // default constructor
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public IdeaManager()
         {
             Ideas = new List<Idea>();
+        }
+
+        /// <summary>
+        /// Copy Constructor
+        /// </summary>
+        /// <param name="ideaManager">IdeaManager to copy</param>
+        public IdeaManager(IdeaManager ideaManager)
+        {
+            Ideas = ideaManager.Ideas;
         }
 
         // ----- default properties -----

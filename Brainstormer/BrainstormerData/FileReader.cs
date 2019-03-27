@@ -93,7 +93,7 @@ namespace BrainstormerData
                 {
                     // these variables store data to later be compiled into an Idea object
                     string userName;
-                    string userPassword;
+                    string password;
 
                     int contributionScore;
                     int votesLeft;
@@ -104,7 +104,7 @@ namespace BrainstormerData
                     // reads lines from the file into the storage variables
                     userName = fileData[i];
                     i++;
-                    userPassword = fileData[i];
+                    password = fileData[i];
                     i++;
 
                     if (!Int32.TryParse(fileData[i], out contributionScore))
@@ -131,7 +131,7 @@ namespace BrainstormerData
                     }
 
                     // compiles all of the read data into a single User object
-                    User aUser = new User(userName, userPassword, contributionScore, votesLeft, isAdmin, isHost);
+                    User aUser = new User(userName, password);
 
                     // adds the User object to the UserManager
                     aUserManager.UserList.Add(aUser);
