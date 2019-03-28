@@ -32,12 +32,12 @@ namespace Brainstormer
         // this must be called before the page becomes functional
         public void GetIdeaManager(IdeaManager anIdeaManager)
         {
-            anIdeaTournament = new IdeaTournament(anIdeaManager);
+            anIdeaTournament = new IdeaTournament(anIdeaManager,aUserManager,false);
         }
 
         void DisplayIdeas()
         {
-            IdeaViewerBox.ItemsSource = anIdeaTournament.anIdeaManager.Ideas;
+            IdeaViewerBox.ItemsSource = anIdeaTournament.IdeaManager.Ideas;
         }
 
         private void StartTournament_Click(object sender, RoutedEventArgs e)
@@ -50,7 +50,7 @@ namespace Brainstormer
             // Collapsed will collapse it so that it has zero width and height
             StartTournamentButton.Visibility = Visibility.Hidden;
 
-            RoundLabel.Content = "Round 1";
+            RoundLabel.Content = "Round " + anIdeaTournament.RoundNumber;
             InfoLabel.Content = "Click the ideas that you want to vote for";
             VotesLeftLabel.Content = "You have X votes left";
 
@@ -63,15 +63,16 @@ namespace Brainstormer
 
         private void OnMouseLeftButtonDown(object sender, RoutedEventArgs e)
         {
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
         // ----- default properties -----
         private IdeaTournament anIdeaTournament { get; set; }
+        private UserManager aUserManager { get; set; }
 
         private List<Idea> selectedIdeas { get; set; }
     }

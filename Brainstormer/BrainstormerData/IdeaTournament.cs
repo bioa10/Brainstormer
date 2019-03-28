@@ -24,11 +24,20 @@ namespace BrainstormerData
 
         public void StartRound()
         {
-
+            ClearVotes();
+            Shuffle();
+            UserVotes = IdeaManager.Ideas.Count / 2;
+            foreach (User user in UserManager.UserList)
+            {
+                user.VotesLeft = UserVotes;
+            }
         }
         
-        public void Vote()
+        public void Vote(Idea idea, User user)
         {
+            user.VotesLeft--;
+            idea.Votes++;
+            CheckRoundEnd();
         }
 
         private void Shuffle()
@@ -43,12 +52,11 @@ namespace BrainstormerData
 
         private void TrimIdeas()
         {
-            foreach (Idea idea in IdeaManager.Ideas)
+            List<Idea> trimmedList = IdeaManager.Ideas.Where(x => x.Votes > MinVotes).ToList();
+            IdeaManager.Ideas.Clear();
+            foreach (Idea idea in trimmedList)
             {
-                if (idea.Votes < MinVotes)
-                {
-                    IdeaManager.Ideas.Remove(idea);
-                }
+                IdeaManager.Ideas.Add(idea);
             }
         }
 
@@ -58,6 +66,22 @@ namespace BrainstormerData
             {
                 idea.Votes = 0;
             }
+        }
+
+        private bool CheckRoundEnd()
+        {
+            foreach (User user in UserManager.UserList)
+            {
+                if (user.VotesLeft > 0)
+                {
+                    return false;
+                }
+            }
+            RoundNumber++;
+            MinVotes = RoundNumber / 2;
+            TrimIdeas();
+            StartRound();
+            return true;
         }
 
 

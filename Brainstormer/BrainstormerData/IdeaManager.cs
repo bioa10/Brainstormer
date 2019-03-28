@@ -25,7 +25,7 @@ namespace BrainstormerData
         /// <param name="ideaManager">IdeaManager to copy</param>
         public IdeaManager(IdeaManager ideaManager)
         {
-            Ideas = ideaManager.Ideas;
+            Ideas = new List<Idea>(ideaManager.Ideas);
         }
 
         // ----- default properties -----
