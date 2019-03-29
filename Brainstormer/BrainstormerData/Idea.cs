@@ -40,6 +40,7 @@ namespace BrainstormerData
             Likes = new List<User>();
             Image = null;
         }
+
         /// <summary>
         /// Sets the name of the idea if the user has permission.
         /// </summary>
@@ -54,6 +55,7 @@ namespace BrainstormerData
             else return false;
             return true;
         }
+
         /// <summary>
         /// Sets the description of the idea if the user has permission.
         /// </summary>
@@ -67,6 +69,7 @@ namespace BrainstormerData
             else return false;
             return true;
         }
+
         /// <summary>
         /// Sets the X and Y position of the idea in the MindMap.
         /// </summary>
@@ -79,6 +82,7 @@ namespace BrainstormerData
             MindMapX = x;
             MindMapY = y;
         }
+
         /// <summary>
         /// Adds a user to the list of users that like an idea.
         /// </summary>
@@ -88,6 +92,7 @@ namespace BrainstormerData
             if (user == null) throw new ArgumentNullException("user can not be null.");
             if (!Likes.Contains(user)) Likes.Add(user);
         }
+
         /// <summary>
         /// Removes a user from the list of users that like an idea.
         /// </summary>
@@ -97,6 +102,7 @@ namespace BrainstormerData
             if (user == null) throw new ArgumentNullException("user can not be null.");
             if (Likes.Contains(user)) Likes.Remove(user);
         }
+
         /// <summary>
         /// Sets the image of the idea if the user has permission.
         /// </summary>
@@ -110,6 +116,7 @@ namespace BrainstormerData
             else return false;
             return true;
         }
+
         /// <summary>
         /// Sets the ToString function.
         /// </summary>

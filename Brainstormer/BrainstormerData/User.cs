@@ -26,6 +26,21 @@ namespace BrainstormerData
         }
 
         /// <summary>
+        /// Load constructor
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        public User(string userName, string password, int contributionScore, int votesLeft, bool isAdmin, bool isHost)
+        {
+            UserName = userName;
+            Password = password;
+            ContributionScore = contributionScore;
+            VotesLeft = votesLeft;
+            IsAdmin = isAdmin;
+            IsHost = isHost;
+        }
+
+        /// <summary>
         /// Allows the user to change their username
         /// </summary>
         /// <param name="userName">A string representing the new username of the user</param>
@@ -81,13 +96,9 @@ namespace BrainstormerData
 
         // ----- default properties -----
         public string UserName { get; private set; }
-
         public string Password { get; private set; }
-
         public int VotesLeft { get; set; }
-
         public bool IsAdmin { get; private set; }
-
         public bool IsHost { get; private set; }
 
         // ----- custom properties -----

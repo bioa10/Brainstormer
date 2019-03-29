@@ -12,6 +12,12 @@ namespace BrainstormerData
     {
         private Random rand = new Random();
 
+        /// <summary>
+        /// IdeaTournament constructor
+        /// </summary>
+        /// <param name="ideaManager">Accepts an IdeaManager that it will make a copy of</param>
+        /// <param name="userManager">Accepts a UserManager to track which users have voted</param>
+        /// <param name="breakTies">Accepts a boolean of whether to break ties with a coin flip</param>
         public IdeaTournament(IdeaManager ideaManager, UserManager userManager, bool breakTies)
         {
             IdeaManager = new IdeaManager(ideaManager);
@@ -22,6 +28,9 @@ namespace BrainstormerData
             MinVotes = 1;
         }
 
+        /// <summary>
+        /// Starts the next round of the tournament
+        /// </summary>
         public void StartRound()
         {
             ClearVotes();
@@ -33,6 +42,11 @@ namespace BrainstormerData
             }
         }
         
+        /// <summary>
+        /// Adds a vote to an idea and removes a vote from the user
+        /// </summary>
+        /// <param name="idea">Accepts the Idea that was voted for</param>
+        /// <param name="user"></param>
         public void Vote(Idea idea, User user)
         {
             user.VotesLeft--;
@@ -40,6 +54,9 @@ namespace BrainstormerData
             CheckRoundEnd();
         }
 
+        /// <summary>
+        /// Shuffles the idea list to help remove bias
+        /// </summary>
         private void Shuffle()
         {
             List<Idea> ideas = new List<Idea>(IdeaManager.Ideas);
@@ -50,6 +67,9 @@ namespace BrainstormerData
             }
         }
 
+        /// <summary>
+        /// Removes all ideas that don't have enough votes
+        /// </summary>
         private void TrimIdeas()
         {
             List<Idea> trimmedList = IdeaManager.Ideas.Where(x => x.Votes > MinVotes).ToList();
@@ -60,6 +80,9 @@ namespace BrainstormerData
             }
         }
 
+        /// <summary>
+        /// Clears the votes from all ideas
+        /// </summary>
         private void ClearVotes()
         {
             foreach (Idea idea in IdeaManager.Ideas)
@@ -68,6 +91,10 @@ namespace BrainstormerData
             }
         }
 
+        /// <summary>
+        /// Checks if everyone has voted, and starts the next round if they have
+        /// </summary>
+        /// <returns></returns>
         private bool CheckRoundEnd()
         {
             foreach (User user in UserManager.UserList)

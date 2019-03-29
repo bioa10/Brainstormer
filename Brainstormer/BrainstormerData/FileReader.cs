@@ -131,7 +131,7 @@ namespace BrainstormerData
                     }
 
                     // compiles all of the read data into a single User object
-                    User aUser = new User(userName, password);
+                    User aUser = new User(userName, password, contributionScore, votesLeft, isAdmin, isHost);
 
                     // adds the User object to the UserManager
                     aUserManager.UserList.Add(aUser);
