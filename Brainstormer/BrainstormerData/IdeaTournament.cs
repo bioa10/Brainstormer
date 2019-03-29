@@ -10,7 +10,7 @@ namespace BrainstormerData
 
     public class IdeaTournament
     {
-        Random rand = new Random();
+        private Random rand = new Random();
 
         public IdeaTournament(IdeaManager ideaManager, UserManager userManager, bool breakTies)
         {

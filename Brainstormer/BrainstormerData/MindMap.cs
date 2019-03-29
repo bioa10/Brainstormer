@@ -9,8 +9,6 @@ namespace BrainstormerData
 {
     public class MindMap
     {
-      
-
         public MindMap()
         {
 
