@@ -51,7 +51,8 @@ namespace BrainstormerData
                     // might be better to eventually use a unique ID or something instead
                     bool foundUser = false;
                     int userIterator;
-                    for (userIterator = 0;  userIterator < aUserManager.UserList.Count; userIterator++)
+                    for (userIterator = 0;
+                        userIterator < aUserManager.UserList.Count; userIterator++)
                     {
                         if (aUserManager.UserList[userIterator].UserName == ownerUsername)
                         {
@@ -67,7 +68,8 @@ namespace BrainstormerData
                     }
 
                     // compiles all of the read data into a single Idea object
-                    Idea anIdea = new Idea(ideaName, ideaDescription, aUserManager.UserList[userIterator]);
+                    Idea anIdea = new Idea(ideaName, ideaDescription,
+                        aUserManager.UserList[userIterator]);
 
                     // adds the Idea object to the IdeaManager
                     anIdeaManager.Ideas.Add(anIdea);
@@ -131,7 +133,8 @@ namespace BrainstormerData
                     }
 
                     // compiles all of the read data into a single User object
-                    User aUser = new User(userName, password, contributionScore, votesLeft, isAdmin, isHost);
+                    User aUser = new User(userName, password,
+                        contributionScore, votesLeft, isAdmin, isHost);
 
                     // adds the User object to the UserManager
                     aUserManager.UserList.Add(aUser);

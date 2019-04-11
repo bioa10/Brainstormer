@@ -16,8 +16,11 @@ namespace BrainstormerData
         /// IdeaTournament constructor
         /// </summary>
         /// <param name="ideaManager">Accepts an IdeaManager that it will make a copy of</param>
+        /// 
         /// <param name="userManager">Accepts a UserManager to track which users have voted</param>
-        /// <param name="breakTies">Accepts a boolean of whether to break ties with a coin flip</param>
+        /// 
+        /// <param name="breakTies">Accepts a boolean of whether to
+        /// break ties with a coin flip</param>
         public IdeaTournament(IdeaManager ideaManager, UserManager userManager, bool breakTies)
         {
             IdeaManager = new IdeaManager(ideaManager);
@@ -46,6 +49,7 @@ namespace BrainstormerData
         /// Adds a vote to an idea and removes a vote from the user
         /// </summary>
         /// <param name="idea">Accepts the Idea that was voted for</param>
+        /// 
         /// <param name="user"></param>
         public void Vote(Idea idea, User user)
         {

@@ -89,9 +89,12 @@ namespace Brainstormer
             {
                 scaleX *= scaleRate;
                 scaleY *= scaleRate;
-             
-                // TODO: possibly use the cursor position as the zoom center, instead of the center of the field
-                ScaleTransform scaleTransform1 = new ScaleTransform(scaleX, scaleY, Width / 2, Height / 2);
+
+                // TODO: possibly use the cursor position as the zoom center,
+                // instead of the center of the field
+                ScaleTransform scaleTransform1 =
+                    new ScaleTransform(scaleX, scaleY, Width / 2, Height / 2);
+
                 MindMapField.RenderTransform = scaleTransform1;
             }
             else
@@ -99,7 +102,9 @@ namespace Brainstormer
                 scaleX /= scaleRate;
                 scaleY /= scaleRate;
                
-                ScaleTransform scaleTransform1 = new ScaleTransform(scaleX, scaleY, Width/2, Height/2);
+                ScaleTransform scaleTransform1 =
+                    new ScaleTransform(scaleX, scaleY, Width/2, Height/2);
+
                 MindMapField.RenderTransform = scaleTransform1;
             }
         }
