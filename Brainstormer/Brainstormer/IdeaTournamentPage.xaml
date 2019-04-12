@@ -29,6 +29,9 @@
                         <DataTrigger Binding="{Binding Votes}" Value="2">
                             <Setter Property="Background" Value="SpringGreen"/>
                         </DataTrigger>
+                        <DataTrigger Binding="{Binding Votes}" Value="3">
+                            <Setter Property="Background" Value="SpringGreen"/>
+                        </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </ListBox.Resources>

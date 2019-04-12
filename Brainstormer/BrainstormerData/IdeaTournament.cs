@@ -26,8 +26,8 @@ namespace BrainstormerData
             IdeaManager = new IdeaManager(ideaManager);
             UserManager = userManager;
             BreakTies = breakTies;
-            MaxVotesPerUser = IdeaManager.Ideas.Count / 2;
-            RoundNumber = 1;
+            MaxVotesPerUser = IdeaManager.Ideas.Count / 3;
+            RoundNumber = 0;
             //MinVotes = 1;
         }
 
@@ -36,9 +36,18 @@ namespace BrainstormerData
         /// </summary>
         public void StartRound()
         {
+            RoundNumber++;
             ClearVotes();
             //Shuffle();
-            MaxVotesPerUser = IdeaManager.Ideas.Count / 2;
+            if (MaxVotesPerUser >= 3)
+            {
+                MaxVotesPerUser = IdeaManager.Ideas.Count / 3;
+            }
+            else
+            {
+                MaxVotesPerUser = 1;
+            }
+
             foreach (User user in UserManager.UserList)
             {
                 user.VotesLeft = MaxVotesPerUser;
@@ -102,7 +111,7 @@ namespace BrainstormerData
         /// <summary>
         /// Removes all ideas that don't have enough votes
         /// </summary>
-        private void TrimIdeas()
+        public void TrimIdeas()
         {
             List<Idea> trimmedList = IdeaManager.Ideas.Where(x => x.Votes > MinVotes).ToList();
             IdeaManager.Ideas.Clear();
