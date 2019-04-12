@@ -89,25 +89,25 @@ namespace Brainstormer
                 {
                     aMindMapPage.MindMapField.Margin = new Thickness(
                         aMindMapPage.MindMapField.Margin.Left,
-                        aMindMapPage.MindMapField.Margin.Top - 12, 0, 0);
+                        aMindMapPage.MindMapField.Margin.Top - 18, 0, 0);
                 }
                 if (e.Key == Key.Left)
                 {
                     aMindMapPage.MindMapField.Margin = new Thickness(
-                        aMindMapPage.MindMapField.Margin.Left - 12,
+                        aMindMapPage.MindMapField.Margin.Left - 18,
                         aMindMapPage.MindMapField.Margin.Top, 0, 0);
                 }
                 if (e.Key == Key.Right)
                 {
                     aMindMapPage.MindMapField.Margin = new Thickness(
-                        aMindMapPage.MindMapField.Margin.Left + 12,
+                        aMindMapPage.MindMapField.Margin.Left + 18,
                         aMindMapPage.MindMapField.Margin.Top, 0, 0);
                 }
                 if (e.Key == Key.Down)
                 {
                     aMindMapPage.MindMapField.Margin = new Thickness(
                         aMindMapPage.MindMapField.Margin.Left,
-                        aMindMapPage.MindMapField.Margin.Top + 12, 0, 0);
+                        aMindMapPage.MindMapField.Margin.Top + 18, 0, 0);
                 }
             }
         }

@@ -118,15 +118,46 @@ namespace Brainstormer
                 scaleX = 1;
                 scaleY = 1;
 
-                ScaleTransform scaleTransform1 =
+                ScaleTransform aScaleTransform =
                     new ScaleTransform(scaleX, scaleY, Width / 2, Height / 2);
 
                 // apply the transform
-                MindMapField.RenderTransform = scaleTransform1;
+                MindMapField.RenderTransform = aScaleTransform;
 
                 // reset the position
                 // the first two values are distance from left, and top side of window
                 MindMapField.Margin = new Thickness(0, 0, 0, 0);
+            }
+
+            // places an item in the canvas when LMB is pressed
+            // (for testing and demonstration purposes)
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                Ellipse anEllipse = new Ellipse();
+
+                // create a brush for coloring the test ellipse
+                SolidColorBrush aSolidColorBrush = new SolidColorBrush();
+                aSolidColorBrush.Color = Color.FromArgb(255, 255, 255, 0);
+
+                anEllipse.Width = 50;
+                anEllipse.Height = 50;
+                anEllipse.Fill = aSolidColorBrush;
+
+                System.Windows.Point position = e.GetPosition(MindMapField);
+
+                anEllipse.Margin = new Thickness(position.X - anEllipse.Width / 2, position.Y - anEllipse.Height / 2, 0, 0);
+                MindMapField.Children.Add(anEllipse);
+
+                Label aLabel = new Label();
+                aLabel.Content = "Idea!";
+               // aLabel.Width = 40;
+               // aLabel.Height = 10;
+                aLabel.Margin = new Thickness((position.X - anEllipse.Width / 2) + 2, (position.Y - anEllipse.Height / 2) + 25, 0, 0);
+
+                RotateTransform aRotatetransform = new RotateTransform(-45);
+                aLabel.RenderTransform = aRotatetransform;
+                
+                MindMapField.Children.Add(aLabel);
             }
         }
     }
