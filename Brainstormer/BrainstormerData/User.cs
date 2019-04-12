@@ -120,6 +120,7 @@ namespace BrainstormerData
             {
                 return false;
             }
+
             return true;
         }
 
@@ -169,7 +170,8 @@ namespace BrainstormerData
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Contribution score can not be negative.");
+                    throw new ArgumentOutOfRangeException(
+                        "Contribution score can not be negative.");
                 }
             }
         }

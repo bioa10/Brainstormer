@@ -32,17 +32,15 @@
 
         <!--This is a frame for holding the pages-->
         <Frame x:Name="_mainFrame" />
-        <TextBox Height="104" TextWrapping="Wrap" Text="BrainStormer" VerticalAlignment="Top" Width="468" Margin="0,170.4,0,0" FontSize="72" FontFamily="Arial" FontWeight="Bold" BorderThickness="0" Focusable="False" IsHitTestVisible="False" TextDecorations="Underline">
+        <TextBox Height="104" TextWrapping="Wrap" Text="BrainStormer" VerticalAlignment="Top"
+                 Width="468" Margin="0,170.4,0,0" FontSize="72" FontFamily="Arial"
+                 FontWeight="Bold" BorderThickness="0" Focusable="False" IsHitTestVisible="False"
+                 TextDecorations="Underline">
             <TextBox.Effect>
                 <BlurEffect Radius="1" RenderingBias="Quality"/>
             </TextBox.Effect>
         </TextBox>
     </DockPanel>
-
-
-
-
-
 
 
 </Window>

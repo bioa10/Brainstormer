@@ -245,7 +245,8 @@ namespace BrainstormerData
             {
                 if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException("ParentID must be greater than or equal to 0.");
+                    throw new ArgumentOutOfRangeException(
+                        "ParentID must be greater than or equal to 0.");
                 }
                 _mindMapParent = value;
             }
@@ -258,7 +259,8 @@ namespace BrainstormerData
             {
                 if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException("Votes must be greater than or equal to 0.");
+                    throw new ArgumentOutOfRangeException(
+                        "Votes must be greater than or equal to 0.");
                 }
                 _votes = value;
             }

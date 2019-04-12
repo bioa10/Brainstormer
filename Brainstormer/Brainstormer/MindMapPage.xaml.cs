@@ -145,14 +145,16 @@ namespace Brainstormer
 
                 System.Windows.Point position = e.GetPosition(MindMapField);
 
-                anEllipse.Margin = new Thickness(position.X - anEllipse.Width / 2, position.Y - anEllipse.Height / 2, 0, 0);
+                anEllipse.Margin = new Thickness(position.X - anEllipse.Width / 2,
+                    position.Y - anEllipse.Height / 2, 0, 0);
                 MindMapField.Children.Add(anEllipse);
 
                 Label aLabel = new Label();
                 aLabel.Content = "Idea!";
                // aLabel.Width = 40;
                // aLabel.Height = 10;
-                aLabel.Margin = new Thickness((position.X - anEllipse.Width / 2) + 2, (position.Y - anEllipse.Height / 2) + 25, 0, 0);
+                aLabel.Margin = new Thickness((position.X - anEllipse.Width / 2) + 2,
+                    (position.Y - anEllipse.Height / 2) + 25, 0, 0);
 
                 RotateTransform aRotatetransform = new RotateTransform(-45);
                 aLabel.RenderTransform = aRotatetransform;

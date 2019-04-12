@@ -54,7 +54,9 @@ namespace Brainstormer
         // async so that await delay works
         private async void StartDemo_Click(object sender, RoutedEventArgs e)
         {
+            // initializes random number generator for voting on random ideas
             Random randomNumberGenerator = new Random();
+
             DisplayIdeas();
 
             StartDemoButton.Visibility = Visibility.Hidden;
@@ -63,9 +65,9 @@ namespace Brainstormer
             DemoDisplay.Text = "Tournament Demo Started";
             await Task.Delay(2000);
             DemoDisplay.Text = "Ideas colored red are in danger of being removed";
-            await Task.Delay(2500);
+            await Task.Delay(3000);
 
-            while (true)
+            while (anIdeaTournament.IdeaManager.Ideas.Count > 0)
             {
                 anIdeaTournament.StartRound();
 
@@ -84,6 +86,7 @@ namespace Brainstormer
                     break;
                 }
 
+                // stores random numbers for choices
                 int randomUser;
                 int randomIdea;
 
@@ -92,6 +95,7 @@ namespace Brainstormer
                 {
                     // update the listbox so that it shows colors changing
                     IdeaViewerBox.Items.Refresh();
+
                     // note: maxValue is not actually included in the output
                     // picks a random user to vote
                     randomUser = randomNumberGenerator.Next(
@@ -104,19 +108,22 @@ namespace Brainstormer
                         randomIdea = randomNumberGenerator.Next(
                         0, anIdeaTournament.IdeaManager.Ideas.Count);
 
-
                         // if the user hasn't already voted on the idea
-                        if (anIdeaTournament.Vote(anIdeaTournament.IdeaManager.Ideas[randomIdea], anIdeaTournament.UserManager.UserList[randomUser]) == true)
+                        if (anIdeaTournament.Vote(anIdeaTournament.IdeaManager.Ideas[randomIdea],
+                            anIdeaTournament.UserManager.UserList[randomUser]) == true)
                         {
-                            DemoDisplay.Text = anIdeaTournament.UserManager.UserList[randomUser].UserName + " voted for: " + anIdeaTournament.IdeaManager.Ideas[randomIdea];
+                            DemoDisplay.Text =
+                                anIdeaTournament.UserManager.UserList[randomUser].UserName + 
+                                " voted for: " + anIdeaTournament.IdeaManager.Ideas[randomIdea];
                             await Task.Delay(2500);
                             DemoDisplay.Text = " ";
                         }
                     }
 
                     await Task.Delay(300);
-                    //break;
-                    VotePercentLabel.Content = Math.Round(anIdeaTournament.calculatePercentageVotesUsed(), 4)
+                   
+                    VotePercentLabel.Content =
+                        Math.Round(anIdeaTournament.calculatePercentageVotesUsed(), 4)
                         * 100 + "% of votes are in";
                 }
 
@@ -126,14 +133,18 @@ namespace Brainstormer
                 DemoDisplay.Text = "Trimming Ideas";
                 anIdeaTournament.TrimIdeas();
 
+                // if there is an idea with more votes, declare the winner
                 if(anIdeaTournament.IdeaManager.Ideas.Count == 2)
                 {
-                    if(anIdeaTournament.IdeaManager.Ideas[0].Votes > anIdeaTournament.IdeaManager.Ideas[1].Votes)
+                    if(anIdeaTournament.IdeaManager.Ideas[0].Votes >
+                        anIdeaTournament.IdeaManager.Ideas[1].Votes)
                     {
-                        DemoDisplay.Text = "Winner: " + anIdeaTournament.IdeaManager.Ideas[0].Name;
+                        DemoDisplay.Text = "Winner: " +
+                            anIdeaTournament.IdeaManager.Ideas[0].Name;
                         break;
                     }
-                    else if(anIdeaTournament.IdeaManager.Ideas[0].Votes < anIdeaTournament.IdeaManager.Ideas[1].Votes)
+                    else if(anIdeaTournament.IdeaManager.Ideas[0].Votes <
+                        anIdeaTournament.IdeaManager.Ideas[1].Votes)
                     {
                         DemoDisplay.Text = "Winner: " + anIdeaTournament.IdeaManager.Ideas[1].Name;
                         break;
@@ -149,6 +160,8 @@ namespace Brainstormer
                     break;
                 }
             }
+
+            // gives back the hidden buttons
             StartDemoButton.Visibility = Visibility.Visible;
             StartTournamentButton.Visibility = Visibility.Visible;
         }
