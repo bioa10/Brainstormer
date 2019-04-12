@@ -26,9 +26,9 @@ namespace BrainstormerData
             IdeaManager = new IdeaManager(ideaManager);
             UserManager = userManager;
             BreakTies = breakTies;
-            UserVotes = IdeaManager.Ideas.Count / 2;
+            MaxVotesPerUser = IdeaManager.Ideas.Count / 2;
             RoundNumber = 1;
-            MinVotes = 1;
+            //MinVotes = 1;
         }
 
         /// <summary>
@@ -38,10 +38,10 @@ namespace BrainstormerData
         {
             ClearVotes();
             Shuffle();
-            UserVotes = IdeaManager.Ideas.Count / 2;
+            MaxVotesPerUser = IdeaManager.Ideas.Count / 2;
             foreach (User user in UserManager.UserList)
             {
-                user.VotesLeft = UserVotes;
+                user.VotesLeft = MaxVotesPerUser;
             }
         }
         
@@ -56,6 +56,26 @@ namespace BrainstormerData
             user.VotesLeft--;
             idea.Votes++;
             CheckRoundEnd();
+        }
+
+        /// <summary>
+        /// Returns the percentage of votes used versus unused from all users
+        /// 1 = all votes used, 0.50 = half of the votes used, etc
+        /// </summary>
+        public double calculatePercentageVotesUsed()
+        {
+            // the total amount of votes given across all users
+            double votesSupplied = UserManager.UserList.Count * MaxVotesPerUser;
+
+            // the total number of votes used by all users
+            double votesUsed = 0;
+
+            for(int i = 0; i < UserManager.UserList.Count; i++)
+            {
+                votesUsed += UserManager.UserList[i].VotesLeft;
+            }
+
+            return votesUsed / votesSupplied;
         }
 
         /// <summary>
@@ -117,14 +137,18 @@ namespace BrainstormerData
 
 
 
+
+
         // ----- default properties -----
         public IdeaManager IdeaManager { get; private set; }
         public UserManager UserManager { get; private set; }
 
         // the current round that the tournament is on
         public int RoundNumber { get; private set; }
+        // the number of votes required to continue?
         public int MinVotes { get; private set; }
-        public int UserVotes { get; private set; }
+        // the amount of votes given to each user per round
+        public int MaxVotesPerUser { get; private set; }
         public bool BreakTies { get; private set; }
 
     }

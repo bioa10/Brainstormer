@@ -16,7 +16,7 @@ namespace BrainstormerData
 
         // warning: this does not append, it deletes previous content
         // overloaded function that reads Idea data from text into objects
-        public void GetData(ref IdeaManager anIdeaManager)
+        public void GetData(IdeaManager anIdeaManager)
         {
             // deletes the old contents of the referenced IdeaManager
             anIdeaManager.Ideas.Clear();
@@ -26,7 +26,7 @@ namespace BrainstormerData
 
             // creates and reads in a local UserManager for adding owner data to the ideas
             UserManager aUserManager = new UserManager();
-            GetData(ref aUserManager);
+            GetData(aUserManager);
 
             // for the length of the string array
             for (int i = 0; i < fileData.Length; i++)
@@ -79,7 +79,7 @@ namespace BrainstormerData
      
         // warning: this does not append, it deletes previous content
         // overloaded function that reads User data from text into objects
-        public void GetData(ref UserManager aUserManager)
+        public void GetData(UserManager aUserManager)
         {
             // deletes the old contents of the referenced UserManager
             aUserManager.UserList.Clear();

@@ -24,7 +24,7 @@ namespace Brainstormer
     {
         MindMapPage aMindMapPage = new MindMapPage();
         IdeaListPage anIdeaListPage = new IdeaListPage();
-        IdeaTournamentPage anIdeaTournamentPage = new IdeaTournamentPage();
+        IdeaTournamentPage anIdeaTournamentPage;
 
         // tracks what the current page is to know which one the keyboard should act on
         string currentPage;
@@ -42,13 +42,13 @@ namespace Brainstormer
             FileReader aFileReader = new FileReader();
 
             // read data from local files into the managers
-            aFileReader.GetData(ref anIdeaManager);
-            aFileReader.GetData(ref aUserManager);
+            aFileReader.GetData(anIdeaManager);
+            aFileReader.GetData(aUserManager);
+
+            // initializes the idea tournament page
+            anIdeaTournamentPage = new IdeaTournamentPage(anIdeaManager, aUserManager);
 
             aMindMapPage.SetItemSource(anIdeaManager.Ideas);
-
-            // sends the ideas to the idea tournament
-            anIdeaTournamentPage.GetIdeaManager(anIdeaManager);
         }
 
         private void MindMap_Click(object sender, System.EventArgs e)
@@ -78,6 +78,8 @@ namespace Brainstormer
         // keyboard controls for the mindmap
         // this seems kinda hacky but it does the job
         // may want to revisit it at a later time
+        // this is here and not inside MindMapPage because the keydown event doesn't
+        // make it to the page
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             //aMindMapPage.DebugInfoBox.Items.Clear();
@@ -89,25 +91,25 @@ namespace Brainstormer
                 {
                     aMindMapPage.MindMapField.Margin = new Thickness(
                         aMindMapPage.MindMapField.Margin.Left,
-                        aMindMapPage.MindMapField.Margin.Top - 18, 0, 0);
+                        aMindMapPage.MindMapField.Margin.Top + 18, 0, 0);
                 }
                 if (e.Key == Key.Left)
                 {
                     aMindMapPage.MindMapField.Margin = new Thickness(
-                        aMindMapPage.MindMapField.Margin.Left - 18,
+                        aMindMapPage.MindMapField.Margin.Left + 18,
                         aMindMapPage.MindMapField.Margin.Top, 0, 0);
                 }
                 if (e.Key == Key.Right)
                 {
                     aMindMapPage.MindMapField.Margin = new Thickness(
-                        aMindMapPage.MindMapField.Margin.Left + 18,
+                        aMindMapPage.MindMapField.Margin.Left - 18,
                         aMindMapPage.MindMapField.Margin.Top, 0, 0);
                 }
                 if (e.Key == Key.Down)
                 {
                     aMindMapPage.MindMapField.Margin = new Thickness(
                         aMindMapPage.MindMapField.Margin.Left,
-                        aMindMapPage.MindMapField.Margin.Top + 18, 0, 0);
+                        aMindMapPage.MindMapField.Margin.Top - 18, 0, 0);
                 }
             }
         }

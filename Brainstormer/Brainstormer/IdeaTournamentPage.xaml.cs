@@ -23,16 +23,10 @@ namespace Brainstormer
     /// </summary>
     public partial class IdeaTournamentPage : Page
     {
-        public IdeaTournamentPage()
+        public IdeaTournamentPage(IdeaManager anIdeaManager, UserManager aUserManager)
         {
             InitializeComponent();
-            
-        }
-
-        // this must be called before the page becomes functional
-        public void GetIdeaManager(IdeaManager anIdeaManager)
-        {
-            anIdeaTournament = new IdeaTournament(anIdeaManager,aUserManager,false);
+            anIdeaTournament = new IdeaTournament(anIdeaManager, aUserManager, false);
         }
 
         void DisplayIdeas()
@@ -46,8 +40,8 @@ namespace Brainstormer
 
             DisplayIdeas();
 
-            // Hidden hides the button but it will still take up space
-            // Collapsed will collapse it so that it has zero width and height
+            // hidden hides the button but it will still take up space
+            // collapsed will collapse it so that it has zero width and height
             StartTournamentButton.Visibility = Visibility.Hidden;
 
             RoundLabel.Content = "Round " + anIdeaTournament.RoundNumber;
@@ -57,17 +51,31 @@ namespace Brainstormer
             //IdeaViewerBox.SelectedItem
         }
 
-      
-        
+        private async void StartDemo_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayIdeas();
+            StartDemoButton.Visibility = Visibility.Hidden;
+            RoundLabel.Content = "Round " + anIdeaTournament.RoundNumber;
+            InfoLabel.Content = "Click the ideas that you want to vote for";
+            VotesLeftLabel.Content = "You have X votes left";
 
+            DemoDisplay.Content = "Tournament Demo Started";
+            await Task.Delay(4500);
+            DemoDisplay.Content = "Round 1";
+            // if there are at least two users to test with
+            if (anIdeaTournament.UserManager.UserList.Count > 1)
+            {
+                // while users have votes left
+                //while (anIdeaTournament.calculatePercentageVotesUsed() != 1)
+                //{
+
+               // }
+            }
+        }
 
         private void OnMouseLeftButtonDown(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
         }
 
         // ----- default properties -----

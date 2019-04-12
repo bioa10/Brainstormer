@@ -14,15 +14,16 @@
         <Button Name="StartTournamentButton" Content="Start Tournament" HorizontalAlignment="Left" Margin="60,70,0,0" VerticalAlignment="Top" Width="102" Height="29" Click="StartTournament_Click"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="10,378,0,0" Stroke="Black" VerticalAlignment="Top" Width="256"/>
         <Label Content="Admin / Developer Options" HorizontalAlignment="Left" Margin="10,347,0,0" VerticalAlignment="Top" Width="166"/>
-        <Button Name="StartDemoButton" Content="Start Demo" HorizontalAlignment="Left" Margin="24,417,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click"/>
-        
+        <Button Name="StartDemoButton" Content="Start Demo" HorizontalAlignment="Left" Margin="24,417,0,0" VerticalAlignment="Top" Width="80" Click="StartDemo_Click"/>
+
         <ListBox Name="IdeaViewerBox" HorizontalAlignment="Left" Height="166" Margin="297,70,0,0" VerticalAlignment="Top" Width="431"/>
 
-        
+
 
         <Label Name="RoundLabel" Content="Round #" HorizontalAlignment="Left" Margin="297,39,0,0" VerticalAlignment="Top" Width="138"/>
         <Label Name="InfoLabel" Content="Click Start Tournament to begin a new tournament" HorizontalAlignment="Left" Margin="297,259,0,0" VerticalAlignment="Top" Width="431"/>
         <Label Name="VotesLeftLabel" Content=" " HorizontalAlignment="Left" Margin="297,290,0,0" VerticalAlignment="Top" Width="138"/>
+        <Label Name="DemoDisplay" Content=" " HorizontalAlignment="Left" Margin="297,315,0,0" VerticalAlignment="Top" Width="637" Height="78" FontSize="36"/>
 
     </Grid>
 </Page>
