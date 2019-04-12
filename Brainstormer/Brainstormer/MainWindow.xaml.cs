@@ -87,29 +87,29 @@ namespace Brainstormer
 
             if (currentPage == "mindmap")
             {
-                if (e.Key == Key.Up)
+                if (e.Key == Key.Up || e.Key == Key.W)
                 {
                     aMindMapPage.MindMapField.Margin = new Thickness(
                         aMindMapPage.MindMapField.Margin.Left,
-                        aMindMapPage.MindMapField.Margin.Top + 18, 0, 0);
+                        aMindMapPage.MindMapField.Margin.Top + 22, 0, 0);
                 }
-                if (e.Key == Key.Left)
+                if (e.Key == Key.Left || e.Key == Key.A)
                 {
                     aMindMapPage.MindMapField.Margin = new Thickness(
-                        aMindMapPage.MindMapField.Margin.Left + 18,
+                        aMindMapPage.MindMapField.Margin.Left + 22,
                         aMindMapPage.MindMapField.Margin.Top, 0, 0);
                 }
-                if (e.Key == Key.Right)
+                if (e.Key == Key.Right || e.Key == Key.D)
                 {
                     aMindMapPage.MindMapField.Margin = new Thickness(
-                        aMindMapPage.MindMapField.Margin.Left - 18,
+                        aMindMapPage.MindMapField.Margin.Left - 22,
                         aMindMapPage.MindMapField.Margin.Top, 0, 0);
                 }
-                if (e.Key == Key.Down)
+                if (e.Key == Key.Down || e.Key == Key.S)
                 {
                     aMindMapPage.MindMapField.Margin = new Thickness(
                         aMindMapPage.MindMapField.Margin.Left,
-                        aMindMapPage.MindMapField.Margin.Top - 18, 0, 0);
+                        aMindMapPage.MindMapField.Margin.Top - 22, 0, 0);
                 }
             }
         }

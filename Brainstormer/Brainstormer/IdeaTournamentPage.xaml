@@ -16,14 +16,31 @@
         <Label Content="Admin / Developer Options" HorizontalAlignment="Left" Margin="10,347,0,0" VerticalAlignment="Top" Width="166"/>
         <Button Name="StartDemoButton" Content="Start Demo" HorizontalAlignment="Left" Margin="24,417,0,0" VerticalAlignment="Top" Width="80" Click="StartDemo_Click"/>
 
-        <ListBox Name="IdeaViewerBox" HorizontalAlignment="Left" Height="166" Margin="297,70,0,0" VerticalAlignment="Top" Width="431"/>
+        <ListBox Name="IdeaViewerBox" HorizontalAlignment="Left" Height="240" Margin="297,70,0,0" VerticalAlignment="Top" Width="431" ItemsSource="{Binding Idea}" FontWeight="Bold">
+            <ListBox.Resources>
+                <Style TargetType="ListBoxItem">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Votes}" Value="0">
+                            <Setter Property="Background" Value="Red"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Votes}" Value="1">
+                            <Setter Property="Background" Value="Yellow"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Votes}" Value="2">
+                            <Setter Property="Background" Value="SpringGreen"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ListBox.Resources>
+        </ListBox>
 
 
 
         <Label Name="RoundLabel" Content="Round #" HorizontalAlignment="Left" Margin="297,39,0,0" VerticalAlignment="Top" Width="138"/>
-        <Label Name="InfoLabel" Content="Click Start Tournament to begin a new tournament" HorizontalAlignment="Left" Margin="297,259,0,0" VerticalAlignment="Top" Width="431"/>
-        <Label Name="VotesLeftLabel" Content=" " HorizontalAlignment="Left" Margin="297,290,0,0" VerticalAlignment="Top" Width="138"/>
-        <TextBlock Name="DemoDisplay" HorizontalAlignment="Left" Margin="297,315,0,0" VerticalAlignment="Top" Width="637" Height="121" FontSize="36" TextWrapping="Wrap"/>
+        <Label Name="InfoLabel" Content="Click Start Tournament to begin a new tournament" HorizontalAlignment="Left" Margin="297,315,0,0" VerticalAlignment="Top" Width="431"/>
+        <Label Name="VotesLeftLabel" Content=" " HorizontalAlignment="Left" Margin="128,285,0,0" VerticalAlignment="Top" Width="138"/>
+        <TextBlock Name="DemoDisplay" HorizontalAlignment="Left" Margin="297,357,0,0" VerticalAlignment="Top" Width="637" Height="121" FontSize="36" TextWrapping="Wrap"/>
+        <Label Name="VotePercentLabel" Content="Percent of votes in" HorizontalAlignment="Left" Margin="465,39,0,0" VerticalAlignment="Top" Width="146"/>
 
     </Grid>
 </Page>

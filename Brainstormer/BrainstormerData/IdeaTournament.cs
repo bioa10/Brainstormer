@@ -37,7 +37,7 @@ namespace BrainstormerData
         public void StartRound()
         {
             ClearVotes();
-            Shuffle();
+            //Shuffle();
             MaxVotesPerUser = IdeaManager.Ideas.Count / 2;
             foreach (User user in UserManager.UserList)
             {
@@ -80,7 +80,7 @@ namespace BrainstormerData
 
             for(int i = 0; i < UserManager.UserList.Count; i++)
             {
-                votesUsed += UserManager.UserList[i].VotesLeft;
+                votesUsed += MaxVotesPerUser - UserManager.UserList[i].VotesLeft;
             }
 
             return votesUsed / votesSupplied;
@@ -154,7 +154,7 @@ namespace BrainstormerData
 
         // the current round that the tournament is on
         public int RoundNumber { get; private set; }
-        // the number of votes required to continue?
+        // the minimum number of votes for an idea to survive
         public int MinVotes { get; private set; }
         // the amount of votes given to each user per round
         public int MaxVotesPerUser { get; private set; }

@@ -22,3 +22,18 @@ Hank Hill
 Create an encryption program
 Create a program that can encrypt and decrypt a string of text
 Hank Hill
+Create a cryptocurrency
+Write a block-chain based transaction client/node
+Philip Fry
+Automated school attendance system
+Create a facial recognition based system that records attendance of classes
+Philip Fry
+Create your own internet
+Build a distributed ad-hoc network software that acts similar to the internet
+Philip Fry
+Create a game that runs on mobile devices
+Create a game that runs on mobile devices
+Philip Fry
+Create a sign language teaching robot
+A robot that makes hand gestures for teaching sign language
+Philip Fry

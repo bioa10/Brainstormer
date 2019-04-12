@@ -51,19 +51,25 @@ namespace Brainstormer
             //IdeaViewerBox.SelectedItem
         }
 
+        // async so that await delay works
         private async void StartDemo_Click(object sender, RoutedEventArgs e)
         {
+            anIdeaTournament.StartRound();
+
             Random randomNumberGenerator = new Random();
 
             DisplayIdeas();
+
             StartDemoButton.Visibility = Visibility.Hidden;
+            StartTournamentButton.Visibility = Visibility.Hidden;
+
             RoundLabel.Content = "Round " + anIdeaTournament.RoundNumber;
             InfoLabel.Content = "Click the ideas that you want to vote for";
             VotesLeftLabel.Content = "You have X votes left";
 
             DemoDisplay.Text = "Tournament Demo Started";
             await Task.Delay(2000);
-            DemoDisplay.Text = "Round 1";
+            DemoDisplay.Text = "Round 1 Started";
             await Task.Delay(2000);
             // if there are at least two users to test with
             if (anIdeaTournament.UserManager.UserList.Count > 1)
@@ -73,6 +79,8 @@ namespace Brainstormer
                 // while users have votes left
                 while (anIdeaTournament.calculatePercentageVotesUsed() != 1)
                 {
+                    // update the listbox so that it shows colors changing
+                    IdeaViewerBox.Items.Refresh();
                     // note: maxValue is not actually included in the output
                     // picks a random user to vote
                     randomUser = randomNumberGenerator.Next(
@@ -90,15 +98,18 @@ namespace Brainstormer
                         if(anIdeaTournament.Vote(anIdeaTournament.IdeaManager.Ideas[randomIdea], anIdeaTournament.UserManager.UserList[randomUser]) == true)
                         {
                             DemoDisplay.Text = anIdeaTournament.UserManager.UserList[randomUser].UserName + " voted for: " + anIdeaTournament.IdeaManager.Ideas[randomIdea];
-                            await Task.Delay(2000);
+                            await Task.Delay(2500);
                             DemoDisplay.Text = " ";
                         }
                     }
                     
-                    await Task.Delay(500);
+                    await Task.Delay(300);
                     //break;
+                    VotePercentLabel.Content = Math.Round(anIdeaTournament.calculatePercentageVotesUsed(), 4)
+                        * 100 + "% of votes are in";
                 }
             }
+            DemoDisplay.Text = "Round 1 Ended";
         }
 
         private void OnMouseLeftButtonDown(object sender, RoutedEventArgs e)
