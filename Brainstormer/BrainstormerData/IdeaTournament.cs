@@ -79,7 +79,7 @@ namespace BrainstormerData
         /// Returns the percentage of votes used versus unused from all users
         /// 1 = all votes used, 0.50 = half of the votes used, etc
         /// </summary>
-        public double calculatePercentageVotesUsed()
+        public double CalculatePercentageVotesUsed()
         {
             // the total amount of votes given across all users
             double votesSupplied = UserManager.UserList.Count * MaxVotesPerUser;

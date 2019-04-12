@@ -35,7 +35,7 @@ namespace BrainstormerData
             Description = description;
             
             // a newly created idea has no parent in the mindmap
-            IsMindMapChild = false;
+            IsMindmapChild = false;
 
             // a newly created idea is not in the mindmap
             IsInMindmap = false;
@@ -207,7 +207,7 @@ namespace BrainstormerData
         public string Description { get; private set; }
 
         // does this idea have a parent in the mindmap?
-        public bool IsMindMapChild { get; private set; }
+        public bool IsMindmapChild { get; private set; }
 
         // is this idea displayed in the mindmap?
         public bool IsInMindmap { get; private set; }

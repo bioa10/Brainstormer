@@ -91,7 +91,7 @@ namespace Brainstormer
                 int randomIdea;
 
                 // while users have votes left
-                while (anIdeaTournament.calculatePercentageVotesUsed() != 1)
+                while (anIdeaTournament.CalculatePercentageVotesUsed() != 1)
                 {
                     // update the listbox so that it shows colors changing
                     IdeaViewerBox.Items.Refresh();
@@ -123,7 +123,7 @@ namespace Brainstormer
                     await Task.Delay(300);
                    
                     VotePercentLabel.Content =
-                        Math.Round(anIdeaTournament.calculatePercentageVotesUsed(), 4)
+                        Math.Round(anIdeaTournament.CalculatePercentageVotesUsed(), 4)
                         * 100 + "% of votes are in";
                 }
 
