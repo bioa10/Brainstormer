@@ -53,23 +53,51 @@ namespace Brainstormer
 
         private async void StartDemo_Click(object sender, RoutedEventArgs e)
         {
+            Random randomNumberGenerator = new Random();
+
             DisplayIdeas();
             StartDemoButton.Visibility = Visibility.Hidden;
             RoundLabel.Content = "Round " + anIdeaTournament.RoundNumber;
             InfoLabel.Content = "Click the ideas that you want to vote for";
             VotesLeftLabel.Content = "You have X votes left";
 
-            DemoDisplay.Content = "Tournament Demo Started";
-            await Task.Delay(4500);
-            DemoDisplay.Content = "Round 1";
+            DemoDisplay.Text = "Tournament Demo Started";
+            await Task.Delay(2000);
+            DemoDisplay.Text = "Round 1";
+            await Task.Delay(2000);
             // if there are at least two users to test with
             if (anIdeaTournament.UserManager.UserList.Count > 1)
             {
+                int randomUser = 0;
+                int randomIdea = 0;
                 // while users have votes left
-                //while (anIdeaTournament.calculatePercentageVotesUsed() != 1)
-                //{
+                while (anIdeaTournament.calculatePercentageVotesUsed() != 1)
+                {
+                    // note: maxValue is not actually included in the output
+                    // picks a random user to vote
+                    randomUser = randomNumberGenerator.Next(
+                        0, anIdeaTournament.UserManager.UserList.Count);
+                    
+                    // if the random user has votes left
+                    if(anIdeaTournament.UserManager.UserList[randomUser].VotesLeft > 0)
+                    {
+                        // pick a random idea to vote on
+                        randomIdea = randomNumberGenerator.Next(
+                        0, anIdeaTournament.IdeaManager.Ideas.Count);
 
-               // }
+                       
+                        // if the user hasn't already voted on the idea
+                        if(anIdeaTournament.Vote(anIdeaTournament.IdeaManager.Ideas[randomIdea], anIdeaTournament.UserManager.UserList[randomUser]) == true)
+                        {
+                            DemoDisplay.Text = anIdeaTournament.UserManager.UserList[randomUser].UserName + " voted for: " + anIdeaTournament.IdeaManager.Ideas[randomIdea];
+                            await Task.Delay(2000);
+                            DemoDisplay.Text = " ";
+                        }
+                    }
+                    
+                    await Task.Delay(500);
+                    //break;
+                }
             }
         }
 

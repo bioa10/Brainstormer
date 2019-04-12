@@ -48,6 +48,7 @@ namespace BrainstormerData
             ProCons = new List<ProCon>();
             Likes = new List<User>();
             Image = null;
+            Voters = new List<User>();
         }
 
         /// <summary>
@@ -224,6 +225,9 @@ namespace BrainstormerData
 
         // a list of users who added a like to this idea
         public List<User> Likes { get; private set; }
+
+        // a list of users who voted for this idea
+        public List<User> Voters { get; private set; }
 
         // the user who created this idea
         public User Creator { get; private set; }

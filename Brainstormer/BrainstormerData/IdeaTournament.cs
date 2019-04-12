@@ -10,7 +10,7 @@ namespace BrainstormerData
 
     public class IdeaTournament
     {
-        private Random rand = new Random();
+        private Random randomNumberGenerator = new Random();
 
         /// <summary>
         /// IdeaTournament constructor
@@ -51,11 +51,19 @@ namespace BrainstormerData
         /// <param name="idea">Accepts the Idea that was voted for</param>
         /// 
         /// <param name="user"></param>
-        public void Vote(Idea idea, User user)
+        public bool Vote(Idea idea, User user)
         {
-            user.VotesLeft--;
-            idea.Votes++;
-            CheckRoundEnd();
+            // if this user has not voted for this idea
+            if(idea.Voters.Contains(user) == false)
+            {
+                user.VotesLeft--;
+                idea.Votes++;
+                idea.Voters.Add(user);
+
+                //CheckRoundEnd();
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -87,7 +95,7 @@ namespace BrainstormerData
             IdeaManager.Ideas.Clear();
             while (ideas.Count > 0)
             {
-                IdeaManager.Ideas.Add(ideas[rand.Next(0, ideas.Count - 1)]);
+                IdeaManager.Ideas.Add(ideas[randomNumberGenerator.Next(0, ideas.Count - 1)]);
             }
         }
 
@@ -112,6 +120,7 @@ namespace BrainstormerData
             foreach (Idea idea in IdeaManager.Ideas)
             {
                 idea.Votes = 0;
+                idea.Voters.Clear();
             }
         }
 

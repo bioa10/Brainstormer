@@ -23,7 +23,7 @@
         <Label Name="RoundLabel" Content="Round #" HorizontalAlignment="Left" Margin="297,39,0,0" VerticalAlignment="Top" Width="138"/>
         <Label Name="InfoLabel" Content="Click Start Tournament to begin a new tournament" HorizontalAlignment="Left" Margin="297,259,0,0" VerticalAlignment="Top" Width="431"/>
         <Label Name="VotesLeftLabel" Content=" " HorizontalAlignment="Left" Margin="297,290,0,0" VerticalAlignment="Top" Width="138"/>
-        <Label Name="DemoDisplay" Content=" " HorizontalAlignment="Left" Margin="297,315,0,0" VerticalAlignment="Top" Width="637" Height="78" FontSize="36"/>
+        <TextBlock Name="DemoDisplay" HorizontalAlignment="Left" Margin="297,315,0,0" VerticalAlignment="Top" Width="637" Height="121" FontSize="36" TextWrapping="Wrap"/>
 
     </Grid>
 </Page>
