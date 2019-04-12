@@ -35,14 +35,8 @@ namespace Brainstormer
             int fieldHeight = 1000;
             int fieldWidth = 1000;
 
-            int fieldX = -1;
-            int fieldY = -1;
-
-            FieldBorder.Height = fieldHeight;
-            FieldBorder.Width = fieldWidth;
-
-            // first two values are distance from left, and top side of window
-            MindMapField.Margin = new Thickness(fieldX, fieldY, 0, 0);
+            // the first two values are distance from left, and top side of window
+            MindMapField.Margin = new Thickness(0, 0, 0, 0);
 
             MindMapField.Height = fieldHeight;
             MindMapField.Width = fieldWidth;
@@ -52,6 +46,8 @@ namespace Brainstormer
         {
             MindMapListBox.ItemsSource = ideas;
         }
+
+       
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -84,7 +80,7 @@ namespace Brainstormer
         double scaleRate = 1.15;
         // private void Canvas_MouseWheel(object sender, MouseWheelEventArgs e)
         private void Page_MouseWheel(object sender, MouseWheelEventArgs e)
-        {
+        { 
             if (e.Delta > 0)
             {
                 scaleX *= scaleRate;
@@ -95,6 +91,7 @@ namespace Brainstormer
                 ScaleTransform scaleTransform1 =
                     new ScaleTransform(scaleX, scaleY, Width / 2, Height / 2);
 
+                // apply the transform
                 MindMapField.RenderTransform = scaleTransform1;
             }
             else
@@ -105,11 +102,32 @@ namespace Brainstormer
                 ScaleTransform scaleTransform1 =
                     new ScaleTransform(scaleX, scaleY, Width/2, Height/2);
 
+                // apply the transform
                 MindMapField.RenderTransform = scaleTransform1;
             }
         }
 
         public double scaleX { get; set; }
         public double scaleY { get; set; }
+
+        private void Page_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // reset the zoom and position to default if the middle button is pressed
+            if (e.MiddleButton == MouseButtonState.Pressed)
+            {
+                scaleX = 1;
+                scaleY = 1;
+
+                ScaleTransform scaleTransform1 =
+                    new ScaleTransform(scaleX, scaleY, Width / 2, Height / 2);
+
+                // apply the transform
+                MindMapField.RenderTransform = scaleTransform1;
+
+                // reset the position
+                // the first two values are distance from left, and top side of window
+                MindMapField.Margin = new Thickness(0, 0, 0, 0);
+            }
+        }
     }
 }

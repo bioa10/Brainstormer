@@ -8,7 +8,9 @@
       Title="MindMapPage" Height="576" Width="1024"
       MouseMove="MouseMoveHandler"
           Background="LemonChiffon"
-      MouseWheel="Page_MouseWheel">
+      MouseWheel="Page_MouseWheel"
+      Mouse.MouseDown="Page_MouseDown"
+      >
     <Grid>
 
         <ListBox Name="MindMapListBox" HorizontalAlignment="Right" Width="257" ItemsSource="{Binding}" SelectionChanged="MindMapListBox_SelectionChanged" Margin="0,350,757,0" Height="118" VerticalAlignment="Top" Panel.ZIndex="1">
@@ -22,20 +24,13 @@
         </ListBox>
         <ListBox Name="DebugInfoBox" HorizontalAlignment="Left" Height="105" VerticalAlignment="Top" Width="257" ItemsSource="{Binding}" IsHitTestVisible="False" Panel.ZIndex="1" Margin="10,10,0,0"/>
 
-        <Border
-            Name="FieldBorder"
-    BorderThickness="20"
-    BorderBrush="Black"
-    HorizontalAlignment="Left"
-    VerticalAlignment="Top"
-    Width="100"
-    Height="100" Margin="-1,-1,0,0">
+        
             <!-- MouseWheel="Canvas_MouseWheel -->
             <Canvas Name="MindMapField" HorizontalAlignment="Left" Height="248" Margin="161,62,-422,-250" VerticalAlignment="Top" Width="321" Background="DarkGreen">
                 <Canvas.RenderTransform>
                     <ScaleTransform CenterX="0" CenterY="0" ScaleX="2" ScaleY="2"  />
                 </Canvas.RenderTransform>
             </Canvas>
-        </Border>
+        
     </Grid>
 </Page>
