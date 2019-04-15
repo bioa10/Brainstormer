@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BrainstormerData;
 
 namespace Brainstormer
 {
@@ -20,9 +21,20 @@ namespace Brainstormer
     /// </summary>
     public partial class IdeaListPage : Page
     {
-        public IdeaListPage()
+        public IdeaListPage(IdeaManager anIdeaManager, UserManager aUserManager)
         {
             InitializeComponent();
+            IdeaManager = anIdeaManager;
+            UserManager = aUserManager;
+            IdeaViewerBox.ItemsSource = IdeaManager.Ideas;
+        }
+
+        public IdeaManager IdeaManager { get; private set; }
+        public UserManager UserManager { get; private set; }
+
+        private void IdeaViewerBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            IdeaDisplay.Text = IdeaManager.Ideas[IdeaViewerBox.SelectedIndex].Description;
         }
     }
 }

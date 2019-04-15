@@ -7,9 +7,13 @@
       mc:Ignorable="d" 
       d:DesignHeight="576" d:DesignWidth="1024"
       Height="576" Width="1024"
-      Title="IdeaListPage">
+      Title="IdeaListPage"
+      Background="GhostWhite">
 
     <Grid>
-        
+
+        <ListBox Name="IdeaViewerBox" Margin="10,10,758,70" ItemsSource="{Binding Idea}" FontWeight="Bold" SelectionChanged="IdeaViewerBox_SelectionChanged" />
+        <TextBlock Name="IdeaDisplay" Margin="319,27,68,365" FontSize="20" TextWrapping="Wrap"/>
+
     </Grid>
 </Page>

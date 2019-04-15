@@ -23,7 +23,7 @@ namespace Brainstormer
     public partial class MainWindow : Window
     {
         MindMapPage aMindMapPage = new MindMapPage();
-        IdeaListPage anIdeaListPage = new IdeaListPage();
+        IdeaListPage anIdeaListPage;
         IdeaTournamentPage anIdeaTournamentPage;
 
         // tracks what the current page is to know which one the keyboard should act on
@@ -47,6 +47,7 @@ namespace Brainstormer
 
             // initializes the idea tournament page
             anIdeaTournamentPage = new IdeaTournamentPage(anIdeaManager, aUserManager);
+            anIdeaListPage = new IdeaListPage(anIdeaManager, aUserManager);
 
             aMindMapPage.SetItemSource(anIdeaManager.Ideas);
         }
