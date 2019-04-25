@@ -176,5 +176,10 @@ namespace Brainstormer
         private UserManager aUserManager { get; set; }
 
         private List<Idea> selectedIdeas { get; set; }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            FileReader aFileReader;
+        }
     }
 }
