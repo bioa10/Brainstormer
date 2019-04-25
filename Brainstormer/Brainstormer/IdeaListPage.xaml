@@ -12,8 +12,14 @@
 
     <Grid>
 
-        <ListBox Name="IdeaViewerBox" Margin="10,10,758,70" ItemsSource="{Binding Idea}" FontWeight="Bold" SelectionChanged="IdeaViewerBox_SelectionChanged" />
-        <TextBlock Name="IdeaDisplay" Margin="319,27,68,365" FontSize="20" TextWrapping="Wrap"/>
+        <ListBox Name="IdeaViewerBox" Margin="10,10,758,115" ItemsSource="{Binding Idea}" FontWeight="Bold" SelectionChanged="IdeaViewerBox_SelectionChanged" />
+        <TextBlock Name="IdeaDisplay" Margin="628,10,10,344" FontSize="20" TextWrapping="Wrap"/>
+        <Button Name="AddIdeaButton" Content="Add Idea" Margin="26,466,928,81"/>
+        <Button x:Name="EditIdeaButton" Content="Edit Idea" Margin="101,466,853,81"/>
+        <Button x:Name="EditIdeaButton_Copy" Content="Delete Idea" Margin="176,466,778,81"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="222" Margin="271,10,0,0" VerticalAlignment="Top" Width="352"/>
+        <ListBox x:Name="CommentViewerBox" Margin="286,237,515,115" ItemsSource="{Binding Idea}" FontWeight="Bold" SelectionChanged="IdeaViewerBox_SelectionChanged" />
+        <ListBox x:Name="CommentViewerBox_Copy" Margin="514,237,341,115" ItemsSource="{Binding Idea}" FontWeight="Bold" SelectionChanged="IdeaViewerBox_SelectionChanged" />
 
     </Grid>
 </Page>
