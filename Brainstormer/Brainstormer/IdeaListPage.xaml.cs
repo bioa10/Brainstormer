@@ -33,8 +33,6 @@ namespace Brainstormer
             UserManager = aUserManager;
             CurrentButtonType = buttonType.Idea;
             IdeaViewerBox.ItemsSource = IdeaManager.Ideas;
-            CommentViewerBox.ItemsSource = IdeaManager.Ideas;
-            ProConViewerBox.ItemsSource = IdeaManager.Ideas;
         }
 
         public IdeaManager IdeaManager { get; private set; }
@@ -44,6 +42,8 @@ namespace Brainstormer
         private void IdeaViewerBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             IdeaDisplay.Text = IdeaManager.Ideas[IdeaViewerBox.SelectedIndex].Description;
+            CommentViewerBox.ItemsSource = IdeaManager.Ideas[IdeaViewerBox.SelectedIndex].Comments;
+            ProConViewerBox.ItemsSource = IdeaManager.Ideas[IdeaViewerBox.SelectedIndex].ProCons;
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Brainstormer
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void FocusChanged(object sender, KeyboardFocusChangedEventArgs e)
+        private void FocusChanged(object sender, RoutedEventArgs e)
         {
             if (sender.GetType() != typeof(ListBox))
             {
@@ -84,9 +84,12 @@ namespace Brainstormer
             DeleteButton.Content = "Delete " + type.ToString();
         }
 
-        private void AddIdea()
+        private void Add(object sender, RoutedEventArgs e)
         {
-            
+            AddItem add = new AddItem(IdeaManager, UserManager.UserList[0], CurrentButtonType, IdeaViewerBox, CommentViewerBox, ProConViewerBox);
+            add.Show();
+
         }
+        
     }
 }

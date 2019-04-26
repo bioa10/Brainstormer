@@ -12,14 +12,14 @@
 
     <Grid>
 
-        <ListBox Name="IdeaViewerBox" Margin="10,10,758,115" ItemsSource="{Binding Idea}" FontWeight="Bold" SelectionChanged="IdeaViewerBox_SelectionChanged" GotKeyboardFocus="FocusChanged"/>
+        <ListBox Name="IdeaViewerBox" Margin="10,10,758,115" ItemsSource="{Binding Idea}" FontWeight="Bold" SelectionChanged="IdeaViewerBox_SelectionChanged" GotKeyboardFocus="FocusChanged" MouseLeftButtonDown="FocusChanged"/>
         <TextBlock Name="IdeaDisplay" Margin="628,10,10,344" FontSize="20" TextWrapping="Wrap"/>
-        <Button Name="AddButton" Content="Add Idea" Margin="12,466,912,81" Visibility="Hidden"/>
-        <Button x:Name="EditButton" Content="Edit Idea" Margin="117,466,807,81" Visibility="Hidden"/>
-        <Button x:Name="DeleteButton" Content="Delete Idea" Margin="222,466,702,81" Visibility="Hidden"/>
+        <Button Name="AddButton" Content="Add Idea" Margin="12,466,912,81" Click="Add"/>
+        <Button x:Name="EditButton" Content="Edit Idea" Margin="117,466,807,81" />
+        <Button x:Name="DeleteButton" Content="Delete Idea" Margin="222,466,702,81" />
         <Image x:Name="IdeaImage" HorizontalAlignment="Left" Height="222" Margin="271,10,0,0" VerticalAlignment="Top" Width="352"/>
-        <ListBox x:Name="CommentViewerBox" Margin="271,237,515,115" ItemsSource="{Binding Idea}" FontWeight="Bold" GotKeyboardFocus="FocusChanged"/>
-        <ListBox x:Name="ProConViewerBox" Margin="514,237,269,115" ItemsSource="{Binding Idea}" FontWeight="Bold" GotKeyboardFocus="FocusChanged"/>
+        <ListBox x:Name="CommentViewerBox" Margin="271,237,515,115" ItemsSource="{Binding Comment}" FontWeight="Bold" GotKeyboardFocus="FocusChanged" MouseLeftButtonDown="FocusChanged"/>
+        <ListBox x:Name="ProConViewerBox" Margin="514,237,269,115" ItemsSource="{Binding ProCon}" FontWeight="Bold" GotKeyboardFocus="FocusChanged" MouseLeftButtonDown="FocusChanged"/>
         <TextBlock x:Name="ProConDisplay" Margin="760,239,10,115" FontSize="20" TextWrapping="Wrap"/>
         <Button x:Name="LikeUnlikeIdea" Content="Like Idea" Margin="327,466,597,81" Visibility="Hidden"/>
 

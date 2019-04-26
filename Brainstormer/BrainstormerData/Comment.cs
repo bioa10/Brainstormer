@@ -59,6 +59,11 @@ namespace BrainstormerData
             return true;
         }
 
+        public override string ToString()
+        {
+            return Description;
+        }
+
         // ----- default properties -----
         public string Description { get; private set; }
         public User Creator { get; private set; }
