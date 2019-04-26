@@ -20,6 +20,7 @@ namespace Brainstormer
     /// </summary>
     public partial class LoginPage : Page
     {
+
         public LoginPage()
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace Brainstormer
 
         private void Bypass_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow.isLoggedIn = true;
             NavigationService.Navigate(new Uri("MindMapPage.xaml", UriKind.Relative));
         }
     }

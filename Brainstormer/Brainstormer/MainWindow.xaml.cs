@@ -26,6 +26,11 @@ namespace Brainstormer
         IdeaListPage anIdeaListPage;
         IdeaTournamentPage anIdeaTournamentPage;
 
+        internal static bool isLoggedIn = false;
+        LoginPage aLoginPage = new LoginPage();
+
+        
+
         // tracks what the current page is to know which one the keyboard should act on
         string currentPage;
 
@@ -50,17 +55,14 @@ namespace Brainstormer
             anIdeaTournamentPage = new IdeaTournamentPage(anIdeaManager, aUserManager);
             anIdeaListPage = new IdeaListPage(anIdeaManager, aUserManager);
 
-            LoginPage aLoginPage = new LoginPage();
+   
 
             aMindMapPage.SetItemSource(anIdeaManager.Ideas);
 
-            currentPage = "LoginPage.xaml";
+            currentPage = "loginpage";
 
             // navigates to the page to be displayed on startup
              _mainFrame.Navigate(aLoginPage);
-          
-            
-            //MainMenubar.Visibility = Visibility.Collapsed;
         }
 
         private void MindMap_Click(object sender, System.EventArgs e)
@@ -91,15 +93,16 @@ namespace Brainstormer
         {
             Console.WriteLine(sender.ToString());
             
-            // this send the name of the page that it is going to
-           if (sender.ToString() == "LoginPage.xaml" || sender.ToString() == "RegisterPage.xaml")
-           
+            // if the user isn't logged in, hide the menu bar
+            // to prevent them from accessing other parts of
+            // the program
+            if (isLoggedIn == false)
             {
-                MainMenubar.Visibility = Visibility.Hidden;
+                MainMenuBar.Visibility = Visibility.Hidden;
             }
             else
             {
-                MainMenubar.Visibility = Visibility.Visible;
+                MainMenuBar.Visibility = Visibility.Visible;
             }
         }
 
