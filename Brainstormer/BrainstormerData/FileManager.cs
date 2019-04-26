@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace BrainstormerData
 {
@@ -15,27 +16,37 @@ namespace BrainstormerData
             
         }
 
-        public void test(User aUser)
+       
+        public void SaveUsers(UserManager aUserManager)
         {
-            string json = JsonConvert.SerializeObject(aUser, Formatting.Indented);
-            
-            Console.WriteLine(json);
-        }
+            string path = "Users.Json";
 
-        public void SaveData(UserManager aUserManager)
-        {
             for (int i = 0; i < aUserManager.UserList.Count(); i++)
             {
+                // convert an object to json
+                string json = JsonConvert.SerializeObject(aUserManager.UserList[i], Formatting.Indented);
 
+                // write to the file
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine(json);
+                }
             }
-
         }
-        public void SaveUser(UserManager aUserManager)
+
+        public void SaveUser(User aUser)
         {
-            
+            string path = "Users.Json";
 
+            // convert an object to json
+            string json = JsonConvert.SerializeObject(aUser, Formatting.Indented);
+
+            // write to the file
+            using (StreamWriter sw = File.CreateText(path))
+            {
+                sw.WriteLine(json);
+            }
         }
-
 
         // warning: this does not append, it deletes previous content
         // overloaded function that reads Idea data from text into objects

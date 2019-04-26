@@ -54,7 +54,10 @@ namespace Brainstormer
                 Status.Text = "Account creation successful!";
 
                 FileManager aFileManager = new FileManager();
-                
+
+                User aUser = new User(UserNameBox.Text, PasswordBox.Password.ToString());
+
+                aFileManager.SaveUser(aUser);
             }
            
         }
