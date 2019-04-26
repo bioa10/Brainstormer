@@ -19,11 +19,22 @@
         </TextBox>
         <Button Content="Back to login" HorizontalAlignment="Left" Margin="288,200,0,0" VerticalAlignment="Top" Width="99" Height="39" FontSize="14" Click="Back_To_Login_Click"/>
         <Label Content="Username" HorizontalAlignment="Left" Margin="503,191,0,0" VerticalAlignment="Top" Width="93"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="503,216,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="186"/>
+        <TextBox Name="UserNameBox" HorizontalAlignment="Left" Height="23" Margin="503,216,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="186"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="505,254,0,0" VerticalAlignment="Top" Width="93"/>
         <TextBlock HorizontalAlignment="Left" Margin="503,326,0,0" TextWrapping="Wrap" Text="Confirm Password" VerticalAlignment="Top"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="503,280,0,0" VerticalAlignment="Top" Width="186"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="503,347,0,0" VerticalAlignment="Top" Width="186"/>
-        <Button Content="Create Account" HorizontalAlignment="Left" Margin="505,392,0,0" VerticalAlignment="Top" Width="99" Height="37"/>
+        <PasswordBox Name="PasswordBox" HorizontalAlignment="Left" Margin="503,280,0,0" VerticalAlignment="Top" Width="186"/>
+        <PasswordBox Name="ConfirmPasswordBox" HorizontalAlignment="Left" Margin="503,347,0,0" VerticalAlignment="Top" Width="186"/>
+        <Button Content="Create Account" HorizontalAlignment="Left" Margin="505,392,0,0" VerticalAlignment="Top" Width="99" Height="37" Click="Create_Account_Click"/>
+        <TextBlock Name="Status" HorizontalAlignment="Left" Margin="622,385,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="62" Width="164" FontSize="14" FontWeight="Bold" Foreground="#FFBA0000" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.849"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.385"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+
     </Grid>
 </Page>
