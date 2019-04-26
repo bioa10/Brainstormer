@@ -36,5 +36,19 @@ namespace Brainstormer
             MainWindow.isLoggedIn = true;
             NavigationService.Navigate(new Uri("MindMapPage.xaml", UriKind.Relative));
         }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            if(false)
+            {
+                Status.Foreground = Brushes.Crimson;
+                Status.Text = "Invalid username or password. Try again.";
+            }
+            else
+            {
+                MainWindow.isLoggedIn = true;
+                NavigationService.Navigate(new Uri("MindMapPage.xaml", UriKind.Relative));
+            }
+        }
     }
 }

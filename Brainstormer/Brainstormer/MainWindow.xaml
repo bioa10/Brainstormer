@@ -24,7 +24,7 @@
             </MenuItem>
 
             <MenuItem Header="Account">
-                <MenuItem Header="Logout"/>
+                <MenuItem Header="Logout" Click="Logout_Click"/>
             </MenuItem>
 
             <MenuItem Header="Admin">

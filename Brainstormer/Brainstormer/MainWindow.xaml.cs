@@ -144,5 +144,11 @@ namespace Brainstormer
                 }
             }
         }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            isLoggedIn = false;
+            _mainFrame.Navigate(aLoginPage);
+        }
     }
 }

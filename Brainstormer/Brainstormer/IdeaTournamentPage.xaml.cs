@@ -176,13 +176,5 @@ namespace Brainstormer
         private UserManager aUserManager { get; set; }
 
         private List<Idea> selectedIdeas { get; set; }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            FileManager aFileReader = new FileManager();
-            User aUser = new User("rick", "morty");
-
-            aFileReader.test(aUser);
-        }
     }
 }

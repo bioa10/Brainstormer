@@ -18,16 +18,7 @@ namespace BrainstormerData
         public void test(User aUser)
         {
             string json = JsonConvert.SerializeObject(aUser, Formatting.Indented);
-            // {
-            //   "Email": "james@example.com",
-            //   "Active": true,
-            //   "CreatedDate": "2013-01-20T00:00:00Z",
-            //   "Roles": [
-            //     "User",
-            //     "Admin"
-            //   ]
-            // }
-
+            
             Console.WriteLine(json);
         }
 
@@ -38,9 +29,13 @@ namespace BrainstormerData
 
             }
 
+        }
+        public void SaveUser(UserManager aUserManager)
+        {
+            
 
         }
-            
+
 
         // warning: this does not append, it deletes previous content
         // overloaded function that reads Idea data from text into objects
