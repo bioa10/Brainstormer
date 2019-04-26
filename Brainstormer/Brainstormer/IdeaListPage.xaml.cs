@@ -21,20 +21,72 @@ namespace Brainstormer
     /// </summary>
     public partial class IdeaListPage : Page
     {
+        
+
+
+        public enum buttonType{ Idea, Comment, ProCon }
+
         public IdeaListPage(IdeaManager anIdeaManager, UserManager aUserManager)
         {
             InitializeComponent();
             IdeaManager = anIdeaManager;
             UserManager = aUserManager;
+            CurrentButtonType = buttonType.Idea;
             IdeaViewerBox.ItemsSource = IdeaManager.Ideas;
+            CommentViewerBox.ItemsSource = IdeaManager.Ideas;
+            ProConViewerBox.ItemsSource = IdeaManager.Ideas;
         }
 
         public IdeaManager IdeaManager { get; private set; }
         public UserManager UserManager { get; private set; }
+        public buttonType CurrentButtonType { get; private set; }
 
         private void IdeaViewerBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             IdeaDisplay.Text = IdeaManager.Ideas[IdeaViewerBox.SelectedIndex].Description;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FocusChanged(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            if (sender.GetType() != typeof(ListBox))
+            {
+                throw new ArgumentException("Invalid Sender");
+            }
+
+            ListBox senderAsListBox = (ListBox)sender;
+
+            switch (senderAsListBox.Name)
+            {
+                case "IdeaViewerBox":
+                    SetButtons(buttonType.Idea);
+                    break;
+                case "CommentViewerBox":
+                    SetButtons(buttonType.Comment);
+                    break;
+                case "ProConViewerBox":
+                    SetButtons(buttonType.ProCon);
+                    break;
+                default:
+                    throw new ArgumentException("Unknown ListBox");
+            }
+        }
+
+        private void SetButtons(buttonType type)
+        {
+            CurrentButtonType = type;
+            AddButton.Content = "Add " + type.ToString();
+            EditButton.Content = "Edit " + type.ToString();
+            DeleteButton.Content = "Delete " + type.ToString();
+        }
+
+        private void AddIdea()
+        {
+            
         }
     }
 }
