@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace Brainstormer
 {
     /// <summary>
-    /// Interaction logic for LoginPage.xaml
+    /// Interaction logic for RegisterPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class RegisterPage : Page
     {
-        public LoginPage()
+        public RegisterPage()
         {
             InitializeComponent();
-        }
-
-        private void Register_Click(object sender, RoutedEventArgs e)
-        {
-           
         }
     }
 }
