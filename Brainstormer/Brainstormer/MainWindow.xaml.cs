@@ -39,7 +39,7 @@ namespace Brainstormer
             UserManager aUserManager = new UserManager();
 
             // create FileReader object
-            FileReader aFileReader = new FileReader();
+            FileManager aFileReader = new FileManager();
 
             // read data from local files into the managers
             aFileReader.GetData(anIdeaManager);
@@ -49,7 +49,13 @@ namespace Brainstormer
             anIdeaTournamentPage = new IdeaTournamentPage(anIdeaManager, aUserManager);
             anIdeaListPage = new IdeaListPage(anIdeaManager, aUserManager);
 
+            LoginPage aLoginPage = new LoginPage();
+
             aMindMapPage.SetItemSource(anIdeaManager.Ideas);
+
+            // navigates to the page to be displayed on startup
+            _mainFrame.Navigate(aLoginPage);
+            currentPage = "login";
         }
 
         private void MindMap_Click(object sender, System.EventArgs e)

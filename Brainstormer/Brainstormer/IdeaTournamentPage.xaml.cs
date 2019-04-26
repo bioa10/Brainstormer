@@ -179,7 +179,10 @@ namespace Brainstormer
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FileReader aFileReader;
+            FileManager aFileReader = new FileManager();
+            User aUser = new User("rick", "morty");
+
+            aFileReader.test(aUser);
         }
     }
 }

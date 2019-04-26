@@ -7,10 +7,10 @@ using Newtonsoft.Json;
 
 namespace BrainstormerData
 {
-    public class FileReader
+    public class FileManager
     {
         // default constructor
-        public FileReader()
+        public FileManager()
         {
             
         }
@@ -29,6 +29,16 @@ namespace BrainstormerData
             // }
 
             Console.WriteLine(json);
+        }
+
+        public void SaveData(UserManager aUserManager)
+        {
+            for (int i = 0; i < aUserManager.UserList.Count(); i++)
+            {
+
+            }
+
+
         }
             
 

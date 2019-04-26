@@ -22,7 +22,11 @@
                 <MenuItem Header="Idea List" Click="Idea_List_Click"/>
                 <MenuItem Header="Idea Tournament" Click="Idea_Tournament_Click"/>
             </MenuItem>
-            
+
+            <MenuItem Header="Account">
+                <MenuItem Header="Logout"/>
+            </MenuItem>
+
             <MenuItem Header="Admin">
                 <MenuItem Header="Contribution Scores"/>
                 <MenuItem Header="Settings"/>
