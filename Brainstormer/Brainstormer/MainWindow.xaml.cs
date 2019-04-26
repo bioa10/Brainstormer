@@ -34,6 +34,7 @@ namespace Brainstormer
             InitializeComponent();
             this.Title = "BrainStormer";
 
+            
             // create Idea and User manager objects
             IdeaManager anIdeaManager = new IdeaManager();
             UserManager aUserManager = new UserManager();
@@ -53,9 +54,13 @@ namespace Brainstormer
 
             aMindMapPage.SetItemSource(anIdeaManager.Ideas);
 
+            currentPage = "LoginPage.xaml";
+
             // navigates to the page to be displayed on startup
-            _mainFrame.Navigate(aLoginPage);
-            currentPage = "login";
+             _mainFrame.Navigate(aLoginPage);
+          
+            
+            //MainMenubar.Visibility = Visibility.Collapsed;
         }
 
         private void MindMap_Click(object sender, System.EventArgs e)
@@ -80,6 +85,22 @@ namespace Brainstormer
             // used to set the displayed page
             _mainFrame.Navigate(anIdeaTournamentPage);
             currentPage = "ideaTournament";
+        }
+
+        private void NavigateEvent(object sender, System.EventArgs e)
+        {
+            Console.WriteLine(sender.ToString());
+            
+            // this send the name of the page that it is going to
+           if (sender.ToString() == "LoginPage.xaml" || sender.ToString() == "RegisterPage.xaml")
+           
+            {
+                MainMenubar.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                MainMenubar.Visibility = Visibility.Visible;
+            }
         }
 
         // keyboard controls for the mindmap

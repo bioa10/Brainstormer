@@ -24,5 +24,10 @@ namespace Brainstormer
         {
             InitializeComponent();
         }
+
+        private void Back_To_Login_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("LoginPage.xaml", UriKind.Relative));
+        }
     }
 }

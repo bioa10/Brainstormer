@@ -11,7 +11,7 @@
 
     <!--The underscores set the shortcut keys (Alt+f for "file" _File )-->
     <DockPanel Height="546" Margin="0,0,-0.4,0" VerticalAlignment="Top">
-        <Menu DockPanel.Dock="Top">
+        <Menu DockPanel.Dock="Top" Name="MainMenubar">
             <MenuItem Header="_File">
                 <MenuItem Header="Load"/>
                 <MenuItem Header="Save"/>
@@ -35,7 +35,7 @@
         <StackPanel></StackPanel>
 
         <!--This is a frame for holding the pages-->
-        <Frame x:Name="_mainFrame" />
+        <Frame x:Name="_mainFrame" Navigated="NavigateEvent" />
         <TextBox Height="104" TextWrapping="Wrap" Text="BrainStormer" VerticalAlignment="Top"
                  Width="468" Margin="0,170.4,0,0" FontSize="72" FontFamily="Arial"
                  FontWeight="Bold" BorderThickness="0" Focusable="False" IsHitTestVisible="False"

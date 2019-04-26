@@ -27,7 +27,12 @@ namespace Brainstormer
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-           
+            NavigationService.Navigate(new Uri("RegisterPage.xaml", UriKind.Relative));
+        }
+
+        private void Bypass_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("MindMapPage.xaml", UriKind.Relative));
         }
     }
 }

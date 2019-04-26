@@ -23,7 +23,7 @@
         <Label Content="New user?" HorizontalAlignment="Left" Margin="612,215,0,0" VerticalAlignment="Top" FontSize="20" RenderTransformOrigin="0.5,1.832"/>
         <Button Content="Register" HorizontalAlignment="Left" Margin="612,271,0,0" VerticalAlignment="Top" Width="101" Height="28" FontSize="18" Click="Register_Click"/>
         <Button Content="Login" HorizontalAlignment="Left" Margin="350,314,0,0" VerticalAlignment="Top" Width="101" Height="28" FontSize="18"/>
-        <Button Content="Developer Bypass" HorizontalAlignment="Left" Margin="424,119,0,0" VerticalAlignment="Top" Width="169" Height="28" FontSize="18"/>
+        <Button Content="Developer Bypass" HorizontalAlignment="Left" Margin="424,119,0,0" VerticalAlignment="Top" Width="169" Height="28" FontSize="18" Click="Bypass_Click"/>
         <PasswordBox HorizontalAlignment="Left" Margin="313,267,0,0" VerticalAlignment="Top" Width="180" Height="25"/>
     </Grid>
 </Page>
